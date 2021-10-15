@@ -51,8 +51,9 @@ bash ./build_tvm.sh # If you fail, check the script for step-by-step instruction
 cd ../../../
 # If success, tvm is installed under `tvm_cov_patch/tvm`
 
-# Add TVM into python path
-export PYTHONPATH=$(realpath tvm_cov_patch/tvm/python)
+# Set up TVM_HOME and PYTHONPATH env var. (so that you can import tvm)
+export TVM_HOME=$(realpath tvm_cov_patch/tvm)
+export PYTHONPATH=$TVM_HOME/python
 
 # Install Python dependency
 python3 -m pip install -r requirements.txt
@@ -78,4 +79,7 @@ Coverage by time: `ten-minute-fuzz/cov_by_time.txt` where 1st column means time 
 
 Till submission, Tzer has been detected **40** bugs for TVM with **30 confirmed** and 24 fixed (merged in the latest branch).
 
-To maximumly ease your effort, we provide an online executable environments for you. To reproduce all the bugs, all you need to do is a single click on your browser.
+Due to the anonymous review policy of OOPSLA, the links of actual bug reports will be provided after the review process. Nonetheless, we list all of the reproducible bugs in Google Colab so that everyone can easily trigger and play with the detected bugs. 
+
+**To reproduce all the bugs, all you need to do is a single click on your browser**. Since some bugs need to be triggered by some complex GPU settings, to maximumly ease the hardware and software effort, the bugs are summarized in a Google Colab environment (No GPU required, but just a browser!).
+
