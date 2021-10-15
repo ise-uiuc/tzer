@@ -1,0 +1,11 @@
+gitpython
+matplotlib
+numpy
+pandas
+synr
+tqdm
+psutil
+pytest
+termcolor
+scipy
+dill

@@ -1,0 +1,101 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 24f0653b3..04c8bb563 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,6 +22,7 @@ endif()
+ # You can create a config.cmake at build folder
+ # and add set(OPTION VALUE) to override these build options.
+ # Alernatively, use cmake -DOPTION=VALUE through command-line.
++tvm_option(USE_COV "Build with coverage" ON)
+ tvm_option(USE_CUDA "Build with CUDA" OFF)
+ tvm_option(USE_OPENCL "Build with OpenCL" OFF)
+ tvm_option(USE_VULKAN "Build with Vulkan" OFF)
+@@ -447,6 +448,7 @@ include(cmake/modules/contrib/Verilator.cmake)
+ include(cmake/modules/Git.cmake)
+ include(cmake/modules/LibInfo.cmake)
+ include(cmake/modules/RustExt.cmake)
++include(cmake/modules/contrib/Memcov.cmake)
+ 
+ include(CheckCXXCompilerFlag)
+ if(NOT MSVC)
+@@ -495,6 +497,11 @@ include(cmake/modules/Logging.cmake)
+ 
+ include(cmake/modules/contrib/PAPI.cmake)
+ 
++if(USE_COV)
++  target_compile_options(tvm_objs PRIVATE -fsanitize-coverage=trace-pc-guard)
++  target_compile_options(tvm_runtime_objs PRIVATE -fsanitize-coverage=trace-pc-guard)
++endif()
++
+ if(USE_MICRO)
+   # NOTE: cmake doesn't track dependencies at the file level across subdirectories. For the
+   # Unix Makefiles generator, need to add these explicit target-level dependency)
+diff --git a/cmake/config.cmake b/cmake/config.cmake
+index 1fce11f90..ab85599d4 100644
+--- a/cmake/config.cmake
++++ b/cmake/config.cmake
+@@ -122,7 +122,7 @@ set(USE_MICRO_STANDALONE_RUNTIME OFF)
+ # - OFF: disable llvm, note this will disable CPU codegen
+ #        which is needed for most cases
+ # - /path/to/llvm-config: enable specific LLVM when multiple llvm-dev is available.
+-set(USE_LLVM OFF)
++set(USE_LLVM ON)
+ 
+ #---------------------------------------------
+ # Contrib libraries
+diff --git a/cmake/modules/contrib/Memcov.cmake b/cmake/modules/contrib/Memcov.cmake
+new file mode 100644
+index 000000000..d8f7965ee
+--- /dev/null
++++ b/cmake/modules/contrib/Memcov.cmake
+@@ -0,0 +1,18 @@
++if(USE_COV)
++    include(FetchContent)
++    FetchContent_Declare(
++      memcov
++      GIT_REPOSITORY "https://github.com/Tzer-AnonBot/memcov.git"
++      GIT_TAG        "origin/main"
++    )
++
++    FetchContent_GetProperties(memcov)
++
++    if(NOT memcov_POPULATED)
++      FetchContent_Populate(memcov)
++      add_subdirectory(${memcov_SOURCE_DIR} ${memcov_BINARY_DIR})
++    endif()
++
++    list(APPEND TVM_LINKER_LIBS memcov)
++    list(APPEND TVM_RUNTIME_LINKER_LIBS memcov)
++endif()
+\ No newline at end of file
+diff --git a/python/tvm/contrib/coverage.py b/python/tvm/contrib/coverage.py
+new file mode 100644
+index 000000000..b11ccdeb6
+--- /dev/null
++++ b/python/tvm/contrib/coverage.py
+@@ -0,0 +1,25 @@
++from tvm._ffi.base import _LIB
++import ctypes
++
++# Because `tvm.contrib.coverage.now` relies on tvm's registry function, so after 
++# calling `reset`, the coverage will not be ZERO (but very small, e.g., 6).
++reset = _LIB.mcov_reset
++
++push = _LIB.mcov_push_coverage
++pop = _LIB.mcov_pop_coverage
++
++get_total = _LIB.mcov_get_total
++get_now = _LIB.mcov_get_now
++
++set_now = _LIB.mcov_set_now
++
++_char_array = ctypes.c_char * get_total()
++
++def get_hitmap():
++    hitmap_buffer = bytearray(get_total())
++    _LIB.mcov_copy_hitmap(_char_array.from_buffer(hitmap_buffer))
++    return hitmap_buffer
++
++def set_hitmap(data):
++    assert len(data) == get_total()
++    _LIB.mcov_set_hitmap(_char_array.from_buffer(data))
