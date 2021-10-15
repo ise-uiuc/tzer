@@ -10,4 +10,7 @@ RUN cd /tzer/tvm_cov_patch && bash ./build_tvm.sh
 
 RUN cd /tzer && apt install -y python3-pip && python3 -m pip install -r requirements.txt
 
+ENV TVM_HOME=/tzer/tvm_cov_patch/tvm
+
 ENV PYTHONPATH=/tzer/tvm_cov_patch/tvm/python
+
