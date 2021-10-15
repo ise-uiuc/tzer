@@ -21,6 +21,12 @@ This is the artifact of Tzer for anonymous review in OOPSLA'22.
 - **Hardware**: 8GB RAM; 100GB Storage; X86 CPU; Good Network to GitHub;
 - **Software**: Linux (tested under Manjaro and Ubuntu20.04)
 
+### Docker Hub (Pre-built)
+
+```shell
+docker run --rm -it tzerbot/oopsla
+```
+
 ### Docker (Build from Scratch)
 
 1. Make sure you have [docker](https://docs.docker.com/get-docker/) installed.
@@ -64,7 +70,7 @@ python3 src/main_tir.py --fuzz-time 10 --report-folder ten-minute-fuzz
 ## Quick Start
 
 ```shell
-# Under the tzer folder.
+cd tzer # Under the tzer folder.
 python3 src/main_tir.py --fuzz-time 10     --report-folder ten-minute-fuzz
 #                       run for 10 min.    bugs in folder `ten-minute-fuzz`
 ```
