@@ -7,6 +7,7 @@ git submodule init && git submodule update --recursive
 patch -p1 < ../memcov4tvm.patch
 mkdir -p build && cd build
 echo "We use LLVM Sanitizers. Please ensure you have clang & compiler-rt installed."
+cp ../cmake/config.cmake .
 cmake .. -DCMAKE_BUILD_TYPE=Release \
          -DCMAKE_CXX_COMPILER=$(which clang++) \
          -DCMAKE_C_COMPILER=$(which clang) \

@@ -1,16 +1,16 @@
-![](./docs/imgs/Tzer-Logo.svg)
+<p align="center">
+    <img src="./docs/imgs/Tzer-Logo.svg", width="550">
+</p>
 
 ---
 
 <p align="center">
-    <a href="#Overview">Overview</a> •
     <a href="#Installation">Installation</a> •
     <a href="#Quick-Start">Quick Start</a> •
     <a href="#Detected-Bugs">Detected Bugs</a> 
 </p>
-# Tzer: Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation
 
-## Overview
+# Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation
 
 This is the artifact of Tzer for anonymous review in OOPSLA'22. 
 
@@ -24,8 +24,9 @@ This is the artifact of Tzer for anonymous review in OOPSLA'22.
 ### Docker (Build from Scratch)
 
 1. Make sure you have [docker](https://docs.docker.com/get-docker/) installed.
-2. `docker build --tag tzer-oopsla:eval .`
-3. `docker run --rm -it tzer-oopsla:eval`
+2. `git clone https://github.com/Tzer-AnonBot/tzer.git && cd tzer`
+3. `docker build --tag tzer-oopsla:eval .`
+4. `docker run --rm -it tzer-oopsla:eval`
 
 ### Manual (Linux)
 
