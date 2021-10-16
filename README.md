@@ -63,6 +63,7 @@ Successful installation looks like:
 
 <details><summary><b>Main commandline options</b> <i>[click to expand]</i></summary>
 <div>
+
 Commandline options (added as tail of commands):
 
 - `--fuzz-time`: Time budget of fuzzing (minute);
@@ -75,6 +76,7 @@ Environment variables to control the algorithm options (added the prefix of comm
 - `NO_SEEDS=1` to disable initial seeds (start from an empty function);
 - `NO_COV=1` to disable the coverage feedback;
 - `TIR_REC=1`to record generated TIR files (for evaluating non-coverage version);
+
 </div>
 </details>
 
@@ -132,6 +134,7 @@ docker run --rm -it tzerbot/oopsla
 
 <details><summary><b>Docker Build (10~20 min., for customized development)</b> <i>[click to expand]</i></summary>
 <div>
+
 Build Tzer under a docker environment! Make sure you have [docker](https://docs.docker.com/get-docker/) installed.
 
 1. `git clone https://github.com/Tzer-AnonBot/tzer.git && cd tzer`
