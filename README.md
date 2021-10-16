@@ -2,10 +2,19 @@
     <img src="./docs/imgs/Tzer-Logo.svg", width="550">
 </p>
 
+<p align="center">
+    <img src="https://img.shields.io/badge/DetectedBug-40-brightgreen.svg">
+    <img src="https://img.shields.io/badge/Confirmed-30-brightgreen.svg">
+    <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
+	<a href="https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+    <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
+</p>
+
+
 ---
 
 <p align="center">
-    <a href="#Detected-Bugs">Reproduce Bugs</a>  •
+    <a href="#Reproduce-Bugs">Reproduce Bugs</a>  •
     <a href="#Quick-Start">Quick Start</a> •
     <a href="#Installation">Installation</a> •
     <a href="#Usage">Usage</a> •
@@ -102,7 +111,7 @@ Coverage by time: `ten-minute-fuzz/cov_by_time.txt` where 1st column means time 
 
 ## Want to Extend Tzer?
 
-We implemented many re-usable functionalities for future and open research! To easily implement other coverage-guided fuzzing algorithm for TVM, after your installing TVM with [memcov](https://github.com/Tzer-AnonBot/memcov) by applying `tvm_cov_patch/memcov4tvm.patch` to TVM (See [](tvm_cov_patch/build_tvm.sh)), you can get current coverage of TVM by:
+We implemented many re-usable functionalities for future and open research! To easily implement other coverage-guided fuzzing algorithm for TVM, after your installing TVM with [memcov](https://github.com/Tzer-AnonBot/memcov) by applying `tvm_cov_patch/memcov4tvm.patch` to TVM (See [tvm_cov_patch/build_tvm.sh](tvm_cov_patch/build_tvm.sh)), you can get current coverage of TVM by:
 
 ```python
 from tvm.contrib import coverage
@@ -121,3 +130,4 @@ coverage.pop()  # merge the top snapshot from the stack.
 3. pop: merge the snapshot of the sub-process and last stored snapshot (top of the stack) to get a complete coverage.
 
 Latency of such combo is usually around 1ms since we applied bit-level optimization.
+
