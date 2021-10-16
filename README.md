@@ -83,7 +83,7 @@ Environment variables to control the algorithm options (added the prefix of comm
 
 ```shell
 # (1): General IR Mutation (No Coverage)*
-TIR_REC=1 NO_COV=1 python3 src/main_tir.py --fuzz-time 240 --report-folder ablation-1
+TVM_HOME=$TVM_NO_COV_HOME PYTHONPATH=$TVM_HOME/python TIR_REC=1 NO_COV=1 python3 src/main_tir.py --fuzz-time 240 --report-folder ablation-1
 python3 src/get_cov.py --folders ablation-1 # Evaluate samples on instrumented TVM to get coverage results.
 
 # (2): (1) + Coverage Guidance
@@ -166,13 +166,16 @@ cd tzer/tvm_cov_patch
 # Build TVM with intruments
 bash ./build_tvm.sh # If you fail, check the script for step-by-step instruction;
 cd ../../../
-# If success, tvm is installed under `tvm_cov_patch/tvm`
+# If success:
+# tvm with coverage is installed under `tvm_cov_patch/tvm`
+# tvm without coverage is under `tvm_cov_patch/tvm-no-cov`
 
 # Install Python dependency
 python3 -m pip install -r requirements.txt
 
 # Set up TVM_HOME and PYTHONPATH env var before using TVM and Tzer.
 export TVM_HOME=$(realpath tvm_cov_patch/tvm)
+export TVM_NO_COV_HOME=$(realpath tvm_cov_patch/tvm-no-cov)
 export PYTHONPATH=$TVM_HOME/python
 ```
 </div>
