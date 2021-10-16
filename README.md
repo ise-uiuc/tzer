@@ -101,6 +101,8 @@ PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder ablation-5 
 ```
 
 **In experimental results posted in the paper, non-coverage baselines leverage TVM without instrumentation. Here for demo usage, coverage feedback is not used but the TVM is instrumented. To use non-instrumented TVM, we need to compile TVM w/o instrumentation and reset TVM_HOME and PYTHONPATH.*
+
+Note that fuzzing is performance-sensitive: To obtain reliable results, evaluation should be conducted in a "clean" environment (e.g., close irrelavant processes as many as possible). To determine how "clean" your environment is, you can log the **[load average](https://www.tecmint.com/understand-linux-load-averages-and-monitor-performance/)** of your Linux system. Expected load average should be around 1 or lower (as what we did in the experiments).
 </div>
 </details>
 
