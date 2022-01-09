@@ -131,10 +131,10 @@ Note that there will be randomness in fuzzing given different system performance
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
 ```
 
-````{admonition} Minumal and Full Experiement 
+````{admonition} Minimal and Full Experiement 
 :class: tip
 In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
-To ease the effort of artifact evaluation, the following **minumal** experiments will run for **3 minutes** by default. 
+To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
 To conduct the full experiments, please replace the commind line argument `--fuzz-time 3` to `--fuzz-time 240`.
 
 For instance of claim 2.1:
@@ -279,10 +279,10 @@ Note that there will be randomness in fuzzing given different system performance
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
 ```
 
-````{admonition} Minumal and Full Experiement 
+````{admonition} Minimal and Full Experiement 
 :class: tip
 In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
-To ease the effort of artifact evaluation, the following **minumal** experiments will run for **3 minutes** by default. 
+To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
 To conduct the full experiments, please replace the commind line argument `--fuzz-time 3` to `--fuzz-time 240`.
 ````
 
@@ -388,10 +388,10 @@ Note that there will be randomness in fuzzing given different system performance
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
 ```
 
-````{admonition} Minumal and Full Experiement 
+````{admonition} Minimal and Full Experiement 
 :class: tip
 In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
-To ease the effort of artifact evaluation, the following **minumal** experiments will run for **3 minutes** by default. 
+To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
 To conduct the full experiments, please replace the commind line argument `--fuzz-time 3` to `--fuzz-time 240`.
 ````
 
