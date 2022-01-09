@@ -1,0 +1,4 @@
+furo
+myst-parser
+Sphinx
+numpydoc
