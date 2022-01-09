@@ -1,0 +1,151 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f5735ff4d..f525f01b6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,17 @@
+ cmake_minimum_required(VERSION 3.2)
+ project(tvm C CXX)
+ 
++set(CMAKE_THREAD_LIBS_INIT "-lpthread")
++set(CMAKE_HAVE_THREADS_LIBRARY 1)
++set(CMAKE_USE_WIN32_THREADS_INIT 0)
++set(CMAKE_USE_PTHREADS_INIT 1)
++set(THREADS_PREFER_PTHREAD_FLAG ON)
++
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=fuzzer-no-link")
++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=fuzzer-no-link")
++
++link_libraries(/usr/lib/clang/12.0.1/lib/linux/libclang_rt.fuzzer_no_main-x86_64.a)
++
+ # Utility functions
+ include(cmake/utils/Utils.cmake)
+ include(cmake/utils/FindCUDA.cmake)
+@@ -22,7 +33,8 @@ endif()
+ # You can create a config.cmake at build folder
+ # and add set(OPTION VALUE) to override these build options.
+ # Alernatively, use cmake -DOPTION=VALUE through command-line.
+-tvm_option(USE_COV "Build with coverage" ON)
++tvm_option(USE_COV "Build with coverage" OFF)
++tvm_option(USE_LIBFUZZ "Build with coverage" ON)
+ tvm_option(USE_CUDA "Build with CUDA" OFF)
+ tvm_option(USE_OPENCL "Build with OpenCL" OFF)
+ tvm_option(USE_VULKAN "Build with Vulkan" OFF)
+@@ -71,7 +83,7 @@ tvm_option(USE_CUBLAS "Build with cuBLAS" OFF)
+ tvm_option(USE_THRUST "Build with Thrust" OFF)
+ tvm_option(USE_MIOPEN "Build with ROCM:MIOpen" OFF)
+ tvm_option(USE_ROCBLAS "Build with ROCM:RoCBLAS" OFF)
+-tvm_option(USE_SORT "Build with sort support" ON)
++tvm_option(USE_SORT "Build with sort support" OFF)
+ tvm_option(USE_NNPACK "Build with nnpack support" OFF)
+ tvm_option(USE_RANDOM "Build with random support" ON)
+ tvm_option(USE_MICRO_STANDALONE_RUNTIME "Build with micro.standalone_runtime support" OFF)
+@@ -472,10 +484,10 @@ include(cmake/modules/Logging.cmake)
+ 
+ include(cmake/modules/contrib/PAPI.cmake)
+ 
+-if(USE_COV)
+-  target_compile_options(tvm_objs PRIVATE -fsanitize-coverage=trace-pc-guard)
+-  target_compile_options(tvm_runtime_objs PRIVATE -fsanitize-coverage=trace-pc-guard)
+-endif()
++# if(USE_LIBFUZZ)
++  #  target_compile_options(tvm_objs PRIVATE -fsanitize=fuzzer-no-link)
++  #  target_compile_options(tvm_runtime_objs PRIVATE -fsanitize=fuzzer-no-link)
++# endif()
+ 
+ if(USE_MICRO)
+   # NOTE: cmake doesn't track dependencies at the file level across subdirectories. For the
+@@ -693,3 +705,11 @@ if(USE_CCACHE) # True for AUTO, ON, /path/to/ccache
+   # Set the flag for ccache
+   set(CXX_COMPILER_LAUNCHER PATH_TO_CCACHE)
+ endif(USE_CCACHE)
++
++if(USE_LIBFUZZ)
++  add_executable(fuzz_me ${CMAKE_SOURCE_DIR}/fuzz_me.cc)
++
++  target_compile_options(fuzz_me PUBLIC -fsanitize=fuzzer)
++  target_link_libraries(fuzz_me PUBLIC /usr/lib/clang/12/lib/linux/libclang_rt.fuzzer-x86_64.a)
++  target_link_libraries(fuzz_me PUBLIC tvm tvm_runtime pthread)
++endif(USE_LIBFUZZ)
+\ No newline at end of file
+diff --git a/cmake/config.cmake b/cmake/config.cmake
+index 8d8186c1b..9b490a98b 100644
+--- a/cmake/config.cmake
++++ b/cmake/config.cmake
+@@ -119,7 +119,7 @@ set(USE_MICRO_STANDALONE_RUNTIME OFF)
+ # - OFF: disable llvm, note this will disable CPU codegen
+ #        which is needed for most cases
+ # - /path/to/llvm-config: enable specific LLVM when multiple llvm-dev is available.
+-set(USE_LLVM OFF)
++set(USE_LLVM ON)
+ 
+ #---------------------------------------------
+ # Contrib libraries
+diff --git a/fuzz_me.cc b/fuzz_me.cc
+new file mode 100644
+index 000000000..1d9a0820a
+--- /dev/null
++++ b/fuzz_me.cc
+@@ -0,0 +1,51 @@
++#include <tvm/driver/driver_api.h>
++#include <tvm/parser/parser.h>
++#include <tvm/target/target.h>
++#include <tvm/node/serialization.h>
++#include <tvm/node/node.h>
++#include "tvm/ir/module.h"
++#include <tvm/runtime/object.h>
++
++#include <cstdint>
++#include <ctime>
++#include <cstdlib>
++#include <cstring>
++#include <fstream>
++#include <string_view>
++
++/*
++HOWTO (by Jiawei):
++git checkout libfuzz
++mkdir -p libfuzz-build && cd libfuzz-build
++cp ../cmake/config.cmake .
++cmake .. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1
++ninja
++mkdir corpus # all files triggering new coverage will be placed here
++mkdir seeds 
++# @Sen, please put all tir seeds into `seeds`. 
++./fuzz_me corpus seeds & # Let it run asynchrously
++# Let's say it won't crash...
++# Kill the program 4 hours later...
++sleep 14400 && killall fuzz_me
++
++
++# OK, almost done.
++# then run files under corpus using tzer after checkout to coverage branch.
++git checkout coverage
++mkdir -p build && cd build
++cmake .. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1
++ninja
++# ... Calculate coverage of files under `libfuzz-build/corpus` as what you do with TVMFuzz.
++*/
++
++extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
++  try {
++    std::string data(Size, '0');
++    for (size_t i=0; i < Size; ++i)
++      data[i] = Data[i];
++
++    tvm::IRModule ir_mod(tvm::Downcast<tvm::IRModule>(tvm::LoadJSON(data)));
++    auto module = tvm::build(ir_mod, tvm::Target("llvm"), tvm::Target("llvm"));
++  } catch (...) {}
++  return 0;  // Non-zero return values are reserved for future use.
++}
+diff --git a/src/runtime/registry.cc b/src/runtime/registry.cc
+index fa09720fc..eb04c279a 100644
+--- a/src/runtime/registry.cc
++++ b/src/runtime/registry.cc
+@@ -66,6 +66,7 @@ Registry& Registry::Register(const std::string& name, bool can_override) {  // N
+   Manager* m = Manager::Global();
+   std::lock_guard<std::mutex> lock(m->mutex);
+   if (m->fmap.count(name)) {
++    return *(m->fmap[name]);
+     ICHECK(can_override) << "Global PackedFunc " << name << " is already registered";
+   }
+ 
