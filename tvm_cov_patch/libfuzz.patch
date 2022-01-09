@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index f5735ff4d..f525f01b6 100644
+index f5735ff4d..47343b0bb 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -1,6 +1,17 @@
+@@ -1,6 +1,12 @@
  cmake_minimum_required(VERSION 3.2)
  project(tvm C CXX)
  
@@ -15,7 +15,7 @@ index f5735ff4d..f525f01b6 100644
  # Utility functions
  include(cmake/utils/Utils.cmake)
  include(cmake/utils/FindCUDA.cmake)
-@@ -22,7 +33,8 @@ endif()
+@@ -22,7 +28,8 @@ endif()
  # You can create a config.cmake at build folder
  # and add set(OPTION VALUE) to override these build options.
  # Alernatively, use cmake -DOPTION=VALUE through command-line.
@@ -25,7 +25,7 @@ index f5735ff4d..f525f01b6 100644
  tvm_option(USE_CUDA "Build with CUDA" OFF)
  tvm_option(USE_OPENCL "Build with OpenCL" OFF)
  tvm_option(USE_VULKAN "Build with Vulkan" OFF)
-@@ -71,7 +83,7 @@ tvm_option(USE_CUBLAS "Build with cuBLAS" OFF)
+@@ -71,7 +78,7 @@ tvm_option(USE_CUBLAS "Build with cuBLAS" OFF)
  tvm_option(USE_THRUST "Build with Thrust" OFF)
  tvm_option(USE_MIOPEN "Build with ROCM:MIOpen" OFF)
  tvm_option(USE_ROCBLAS "Build with ROCM:RoCBLAS" OFF)
@@ -34,7 +34,7 @@ index f5735ff4d..f525f01b6 100644
  tvm_option(USE_NNPACK "Build with nnpack support" OFF)
  tvm_option(USE_RANDOM "Build with random support" ON)
  tvm_option(USE_MICRO_STANDALONE_RUNTIME "Build with micro.standalone_runtime support" OFF)
-@@ -472,10 +484,10 @@ include(cmake/modules/Logging.cmake)
+@@ -472,10 +479,10 @@ include(cmake/modules/Logging.cmake)
  
  include(cmake/modules/contrib/PAPI.cmake)
  
@@ -49,7 +49,7 @@ index f5735ff4d..f525f01b6 100644
  
  if(USE_MICRO)
    # NOTE: cmake doesn't track dependencies at the file level across subdirectories. For the
-@@ -693,3 +705,11 @@ if(USE_CCACHE) # True for AUTO, ON, /path/to/ccache
+@@ -693,3 +700,11 @@ if(USE_CCACHE) # True for AUTO, ON, /path/to/ccache
    # Set the flag for ccache
    set(CXX_COMPILER_LAUNCHER PATH_TO_CCACHE)
  endif(USE_CCACHE)
@@ -58,10 +58,26 @@ index f5735ff4d..f525f01b6 100644
 +  add_executable(fuzz_me ${CMAKE_SOURCE_DIR}/fuzz_me.cc)
 +
 +  target_compile_options(fuzz_me PUBLIC -fsanitize=fuzzer)
-+  target_link_libraries(fuzz_me PUBLIC /usr/lib/clang/12/lib/linux/libclang_rt.fuzzer-x86_64.a)
++  target_link_libraries(fuzz_me PUBLIC /usr/lib/clang/12.0.1/lib/linux/libclang_rt.fuzzer-x86_64.a)
 +  target_link_libraries(fuzz_me PUBLIC tvm tvm_runtime pthread)
 +endif(USE_LIBFUZZ)
 \ No newline at end of file
+diff --git a/cmake/config.cmake b/cmake/config.cmake
+index 8d8186c1b..9b490a98b 100644
+--- a/cmake/config.cmake
++++ b/cmake/config.cmake
+@@ -119,7 +119,7 @@ set(USE_MICRO_STANDALONE_RUNTIME OFF)
+ # - OFF: disable llvm, note this will disable CPU codegen
+ #        which is needed for most cases
+ # - /path/to/llvm-config: enable specific LLVM when multiple llvm-dev is available.
+-set(USE_LLVM OFF)
++set(USE_LLVM ON)
+ 
+ #---------------------------------------------
+ # Contrib libraries
+diff --git a/fuzz_me.cc b/fuzz_me.cc
+new file mode 100644
+index 000000000..1d9a0820a
 --- /dev/null
 +++ b/fuzz_me.cc
 @@ -0,0 +1,51 @@
