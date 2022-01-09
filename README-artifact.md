@@ -142,7 +142,7 @@ LEMON=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tze
 
 - report folder: `/tzer/lemon`
 - expected time: 1 hour
-- to reproduce: TBD
+- to reproduce:
 
 **Note**: Directly using [LEMON](https://github.com/Jacob-yen/LEMON) to generate DL models from scratch is complicated and the massive generated models consumes disk spaces at TB level. It requires using LEMON's docker image and needs some edits to make the pipeline work. LEMON generates Keras models (hundreds of Gigabytes and even over 1 Terabyte). To evaluate it under TVM, we also need to covert these Keras models into TIR files. 
 
@@ -151,7 +151,7 @@ To ease the reproduction procedure, we directly provide the minimized valuable T
 ```shell
 # In the container
 cd /tzer
-TBD@Sen
+python3 src/get_cov_lemon.py --report-folder lemon --result-folder=/tzer/lemon_results
 ```
 
 **LibFuzzer**
@@ -162,8 +162,10 @@ TBD@Sen
 
 ```shell
 # In the container
+cd /tzer/tvm_cov_patch/tvm-libfuzz/build
+python3 run_libfuzz.py -t 14400
 cd /tzer
-TBD@Sen
+python3 src/get_cov_libfuzz.py --report-folder libfuzz --build-folder /tzer/tvm_cov_patch/tvm-libfuzz/build
 ```
 
 **TVMFuzz**
@@ -176,8 +178,11 @@ TBD@Sen
 
 ```shell
 # In the container
+cd /tzer/TVMFuzz
+TVM_HOME=/tzer/tvm_cov_patch/tvm-no-cov PYTHONPATH=/tzer/tvm_cov_patch/tvm-no-cov/python python src/main_tvmfuzz.py --fuzz-time 240 --report-folder tvm-fuzz
+TVM_HOME=/tzer/tvm_cov_patch/tvm PYTHONPATH=/tzer/tvm_cov_patch/tvm/python python src/get_cov.py --folders tvm-fuzz
 cd /tzer
-TBD@Sen
+mv /tzer/TVMFuzz/fvm-fuzz ./
 ```
 
 **Result Visualization**
