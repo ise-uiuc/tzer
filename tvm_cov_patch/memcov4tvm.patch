@@ -53,7 +53,7 @@ index 000000000..d8f7965ee
 +    include(FetchContent)
 +    FetchContent_Declare(
 +      memcov
-+      GIT_REPOSITORY "https://github.com/Tzer-AnonBot/memcov.git"
++      GIT_REPOSITORY "https://github.com/ganler/memcov.git"
 +      GIT_TAG        "origin/main"
 +    )
 +

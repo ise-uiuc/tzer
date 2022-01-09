@@ -51,7 +51,7 @@ Successful installation looks like:
 <details><summary><b>Report folder contents</b> <i>[click to expand]</i></summary>
 <div>
 
-- `cov_by_time.txt`: a csv file where columns means "time" (second) and basic-block coverage;
+- `cov_by_time.txt`: a csv file where columns means "time" (second) and edge coverage;
 - `${BUG_TYPE}_${BUG_ID}.error_message.txt`: error message snapshot of failures;
 - `${BUG_TYPE}_${BUG_ID}.ctx`: context data to reproduce bugs (stored in Pickle. See [config.py](src/tzer/context.py#L51))
 - `meta.txt`: metadata including git version of TVM and experiment time;
@@ -190,8 +190,8 @@ We implemented many re-usable functionalities for future and open research! To e
 ```python
 from tvm.contrib import coverage
 
-print(coverage.get_now()) # Current visited # basic blocks
-print(coverage.get_total()) # Total number of # basic blocks
+print(coverage.get_now()) # Current visited # of CFG edges
+print(coverage.get_total()) # Total number of # of CFG edges
 
 coverage.push() # store current coverage snapshot to a stack and reset it to empty (useful for multi-process scenario)
 coverage.pop()  # merge the top snapshot from the stack. 
