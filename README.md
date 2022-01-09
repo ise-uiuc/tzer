@@ -8,6 +8,7 @@
     <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
 	<a href="https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
     <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
+    <a href="https://tzer.readthedocs.io/en/latest/markdown/artifact.html" title="Artifact"><img src="https://img.shields.io/badge/Artifact-OOPSLA22-brightgreen.svg"></a>
 </p>
 
 
