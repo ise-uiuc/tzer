@@ -135,7 +135,7 @@ PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tzer-tzer-s
 ```shell
 # In the container
 cd /tzer
-LEMON=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tzer-tzer-seed --tolerance 4
+LEMON=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tzer-lemon-seed --tolerance 4
 ```
 
 **LEMON**
