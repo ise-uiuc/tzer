@@ -19,15 +19,15 @@ docker run -it tzerbot/oopsla
 
 # Inside the image; 
 cd tzer
-python3 src/main_tir.py   --fuzz-time 10     --report-folder ten-minute-fuzz
-#                         run for 10 min.    bugs in folder `ten-minute-fuzz`
+python3 src/main_tir.py   --fuzz-time 3     --report-folder quick-start-report
+#                         run for 3 min.    bugs in folder `quick-start-report`
 ```
 
-After a successful installation, commands above run for 10 minutes and print something like:
+After a successful installation, commands above run for 3 minutes and print something like:
 
 ![](./docs/imgs/tzer-terminal-output.png)
 
-Output files are stored in `ten-minute-fuzz` (parameter of `--report-folder`):
+Output files are stored in `quick-start-report` (parameter of `--report-folder`):
 
 <details><summary><b>Report folder contents</b> <i>[click to expand]</i></summary>
 <div>
