@@ -10,9 +10,12 @@
 
 ### Quick Start with Docker
 
+Before you start, please make sure you have [Docker](https://docs.docker.com/engine/install/) installed.
+
 ```shell
 # Pull docker image from docker hub;
-docker run --rm -it tzerbot/oopsla
+docker run -it tzerbot/oopsla
+# By using this command, you will "get into" the image like entering a virtual machine.
 
 # Inside the image; 
 cd tzer
