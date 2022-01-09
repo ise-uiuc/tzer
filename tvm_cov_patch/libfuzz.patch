@@ -10,7 +10,7 @@ index f5735ff4d..f525f01b6 100644
 +set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=fuzzer-no-link")
 +
 +link_libraries(pthread)
-+link_libraries(/usr/lib/clang/12.0.1/lib/linux/libclang_rt.fuzzer_no_main-x86_64.a)
++link_libraries(/usr/lib/clang/10/lib/linux/libclang_rt.fuzzer_no_main-x86_64.a)
 +
  # Utility functions
  include(cmake/utils/Utils.cmake)
