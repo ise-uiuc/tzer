@@ -6,15 +6,10 @@ index f5735ff4d..f525f01b6 100644
  cmake_minimum_required(VERSION 3.2)
  project(tvm C CXX)
  
-+set(CMAKE_THREAD_LIBS_INIT "-lpthread")
-+set(CMAKE_HAVE_THREADS_LIBRARY 1)
-+set(CMAKE_USE_WIN32_THREADS_INIT 0)
-+set(CMAKE_USE_PTHREADS_INIT 1)
-+set(THREADS_PREFER_PTHREAD_FLAG ON)
-+
 +set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=fuzzer-no-link")
 +set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=fuzzer-no-link")
 +
++link_libraries(pthread)
 +link_libraries(/usr/lib/clang/12.0.1/lib/linux/libclang_rt.fuzzer_no_main-x86_64.a)
 +
  # Utility functions
@@ -67,22 +62,6 @@ index f5735ff4d..f525f01b6 100644
 +  target_link_libraries(fuzz_me PUBLIC tvm tvm_runtime pthread)
 +endif(USE_LIBFUZZ)
 \ No newline at end of file
-diff --git a/cmake/config.cmake b/cmake/config.cmake
-index 8d8186c1b..9b490a98b 100644
---- a/cmake/config.cmake
-+++ b/cmake/config.cmake
-@@ -119,7 +119,7 @@ set(USE_MICRO_STANDALONE_RUNTIME OFF)
- # - OFF: disable llvm, note this will disable CPU codegen
- #        which is needed for most cases
- # - /path/to/llvm-config: enable specific LLVM when multiple llvm-dev is available.
--set(USE_LLVM OFF)
-+set(USE_LLVM ON)
- 
- #---------------------------------------------
- # Contrib libraries
-diff --git a/fuzz_me.cc b/fuzz_me.cc
-new file mode 100644
-index 000000000..1d9a0820a
 --- /dev/null
 +++ b/fuzz_me.cc
 @@ -0,0 +1,51 @@

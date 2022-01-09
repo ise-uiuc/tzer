@@ -36,3 +36,21 @@ echo "Successfully installed TVM w/o coverage!"
 echo "To use TVM-cov, copy and paste the following shell statements:"
 echo "export TVM_HOME=$(pwd)"
 echo "export PYTHONPATH=$TVM_HOME/python"
+
+echo "Start building LibFuzzer for TVM"
+cd ..
+cp -r tvm tvm-libfuzz
+cd tvm-libfuzz
+rm -rf build
+patch -p1 < ../libfuzz.patch
+mkdir -p build && cd build
+cp ../../tvm/cmake/config.cmake . # Sync cmake file with coverage version.
+cmake .. -DCMAKE_BUILD_TYPE=Release \
+         -DCMAKE_CXX_COMPILER=$(which clang++) \
+         -DCMAKE_C_COMPILER=$(which clang) \
+         -DFETCHCONTENT_QUIET=0
+make -j$(nproc)
+cd ..
+echo "Successfully installed LibFuzzer for TVM"
+echo "To run the libfuzzer driver, simply run `./build/fuzz_me`"
+echo "You need to manually stop `fuzz_me` otherwise it will run forever."
