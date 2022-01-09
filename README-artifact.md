@@ -8,9 +8,19 @@
 - **Hardware**
   - X86 CPU; 8GB RAM; 256GB Storage; Good Network to [GitHub](https://github.com/) and [Docker Hub](https://hub.docker.com/);
 
-### Quick Start with Docker
 
 Before you start, please make sure you have [Docker](https://docs.docker.com/engine/install/) installed.
+
+```shell
+# Test docker availability
+docker --version
+# Output looks like: (no error)
+# Docker version 20.10.12, build e91ed5707e
+```
+
+Otherwise please follow the installation page of Docker: https://docs.docker.com/engine/install/
+
+### Quick Start with Docker
 
 ```shell
 # Pull docker image from docker hub;
@@ -116,7 +126,7 @@ PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tzer-tzer-s
 ```shell
 # In the container
 cd /tzer
-TBD@Sen
+LEMON=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tzer-tzer-seed --tolerance 4
 ```
 
 **LEMON**
