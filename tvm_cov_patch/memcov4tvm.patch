@@ -54,7 +54,7 @@ index 000000000..d8f7965ee
 +    FetchContent_Declare(
 +      memcov
 +      GIT_REPOSITORY "https://github.com/ganler/memcov.git"
-+      GIT_TAG        "origin/main"
++      GIT_TAG        "origin/master"
 +    )
 +
 +    FetchContent_GetProperties(memcov)
