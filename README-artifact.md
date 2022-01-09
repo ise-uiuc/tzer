@@ -59,7 +59,7 @@ Output files are stored in `quick-start-report` (parameter of `--report-folder`)
 - `cov_by_time.txt`: a csv file where columns means "time" (second) and edge coverage;
 - `valid_seed_new_cov_count.txt`: number of generated valid tests with new coverage;
 - `${BUG_TYPE}_${BUG_ID}.error_message.txt`: error message snapshot of failures;
-- `${BUG_TYPE}_${BUG_ID}.ctx`: context data to reproduce bugs (stored in Pickle. See [config.py](src/tzer/context.py#L51))
+- `${BUG_TYPE}_${BUG_ID}.ctx`: context data to reproduce bugs (stored in Pickle. See [report.py](src/tzer/tir/report.py#L124))
 - `meta.txt`: metadata including git version of TVM and experiment time;
 - `tir_by_time.pickle`: generated <F, P> (i.e., TIR and Passes) files (if `TIR_REC=1` is set);
 
@@ -112,7 +112,7 @@ We list steps to reproduce results in Section 5.1.
 
 #### Figure 5 and Table 2
 
-Figure 5 and Table 2 can be reproduced under the same batch of experiments. There will be 5 sub-experiments for different fuzzers. For each experiment, the output is the the report folder.  Under the report folder, `cov_by_time.txt`: for each it represents elapsed time (in seconds) and coverage splited by ",". In `valid_seed_new_cov_count.txt`, the number of lines represents the total number of valuable tests (initial seeds not taken into account).
+Figure 5 and Table 2 can be reproduced under the same batch of experiments. There will be 5 sub-experiments for different fuzzers. For each experiment, the output is the the report folder.  Under the report folder, `cov_by_time.txt`: for each it represents elapsed time (in seconds) and coverage splited by ",". In `valid_seed_new_cov_count.txt`, the number represents the total number of valuable tests (initial seeds not taken into account).
 
 **Tzer**
 
@@ -172,7 +172,7 @@ TBD@Sen
 - expected time: 10 hours
 - to reproduce:
 
-**Note**: this experiment runs for over 4 hours. As is specified in Section 4.5 of our paper, TVMFuzz requires no coverage support that we first run TVMFuzz on non-instrumented TVM binary (for best performance and fairness) for 4 hours and we then evaluate TVMFuzz's output TIR files on instrumented binary (about 6 hours). 
+**Note**: this experiment runs for over 4 hours. As is specified in Section 4.5 of our paper, TVMFuzz requires no coverage support so we first run TVMFuzz on non-instrumented TVM binary (for best performance and fairness) for 4 hours and we then evaluate TVMFuzz's output TIR files on instrumented binary (about 6 hours). 
 
 ```shell
 # In the container
