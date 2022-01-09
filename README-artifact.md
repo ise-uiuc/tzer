@@ -1,8 +1,22 @@
+<p align="center">
+    <img src="./docs/imgs/Tzer-Logo.svg", width="550">
+</p>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/DetectedBug-40-brightgreen.svg">
+    <img src="https://img.shields.io/badge/Confirmed-30-brightgreen.svg">
+    <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
+	<a href="https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+    <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
+</p>
+
+---
+
 # Artifact Overview of Tzer (OOPSLA'22)
 
 ## Get Started
 
-### Test-bed Requirement
+### Requirements
 
 - **OS:** A Linux System with [Docker](https://docs.docker.com/get-docker/) Support;
 - **Hardware**
@@ -43,11 +57,11 @@ Output files are stored in `quick-start-report` (parameter of `--report-folder`)
 <div>
 
 - `cov_by_time.txt`: a csv file where columns means "time" (second) and edge coverage;
+- `valid_seed_new_cov_count.txt`: number of generated valid tests with new coverage;
 - `${BUG_TYPE}_${BUG_ID}.error_message.txt`: error message snapshot of failures;
 - `${BUG_TYPE}_${BUG_ID}.ctx`: context data to reproduce bugs (stored in Pickle. See [config.py](src/tzer/context.py#L51))
 - `meta.txt`: metadata including git version of TVM and experiment time;
 - `tir_by_time.pickle`: generated <F, P> (i.e., TIR and Passes) files (if `TIR_REC=1` is set);
-- `valid_seed_new_cov_count.txt`: number of generated valid tests with new coverage;
 
 </div>
 </details>
@@ -74,36 +88,30 @@ Environment variables to control the algorithm options (added the prefix of comm
 
 ## Step by Step Instructions
 
-### Claim 1: Bug Finding (25 minutes)
+### Claim 1️⃣: Bug Finding (25 minutes)
 
 > (Abstract) "To date, Tzer has detected **40** previously unknown bugs for TVM, with **30** bugs confirmed and **24** bugs fixed (PR merged)."
 
 #### The total 40 bugs
 
-Reproducing these bugs requires GPU environments and retrieving to the initial git commit when we started our bug finding. 
-To ease the effort of reviewers, we set up a cloud environment in Colab to reproduce the bugs in your browser remotely.
-To reproduce the bugs, open the Colab [link](https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb) in your browser and follow the instructions to set up the GPU environment and reproduce the bugs with a simple click on your mouse. :-)
+Reproducing these bugs requires GPU environments and retrieving to the initial git commit when we started our bug finding. To ease the effort of reviewers, we set up a cloud environment in Colab to reproduce the bugs in your browser remotely. To reproduce the bugs, open the Colab [link](https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb) in your browser and follow the instructions to set up the GPU environment and reproduce the bugs with a simple click on your mouse. :-)
 
 #### 30 confirmed and 24 fixed
 
-We compiled the confirmed bug under the Google Sheet [link](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing).
-Trackable links to PR/Bug reports are listed in the Google Sheet.
-Note that more than 1 bugs might be included for one PR/Issue link.
+We compiled the confirmed bug under the Google Sheet [link](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing). Trackable links to PR/Bug reports are listed in the Google Sheet. Note that more than 1 bugs might be included for one PR/Issue link.
 
 
-### Claim 2: RQ1 - Comparison with Existing Work (26 hours)
+### Claim 2️⃣: RQ1 - Comparison with Existing Work (26 hours)
 
 We list steps to reproduce results in Section 5.1.
 
 *Note that there will be randomness in fuzzing given different system performance and random seeds.*
 *The detailed numbers might not be strictly reproducible but the overall trend should be consistent.*
+*We run these experiments for 4 hours (`--fuzz-time 240`) by default. To use a smaller time budget, tune the parameter of `--fuzz-time` (minutes).*
 
 #### Figure 5 and Table 2
 
-Figure 5 and Table 2 can be reproduced under the same batch of experiments.
-For each experiment, the output is the the report folder. 
-Under the report folder, `cov_by_time.txt`: for each it represents elapsed time (in seconds) and coverage splited by ",".
-In `valid_seed_new_cov_count.txt`, the number of lines represents the total number of valuable tests (initial seeds not taken into account).
+Figure 5 and Table 2 can be reproduced under the same batch of experiments. There will be 5 sub-experiments for different fuzzers. For each experiment, the output is the the report folder.  Under the report folder, `cov_by_time.txt`: for each it represents elapsed time (in seconds) and coverage splited by ",". In `valid_seed_new_cov_count.txt`, the number of lines represents the total number of valuable tests (initial seeds not taken into account).
 
 **Tzer**
 
@@ -135,7 +143,7 @@ LEMON=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tze
 - expected time: 1 hour
 - to reproduce: TBD
 
-Directly using [LEMON](https://github.com/Jacob-yen/LEMON) to generate DL models from scratch is complicated and the massive generated models consumes disk spaces at TB level. It requires using LEMON's docker image and needs some edits to make the pipeline work. LEMON generates Keras models (hundreds of Gigabytes and even over 1 Terabyte). To evaluate it under TVM, we also need to covert these Keras models into TIR files. 
+**Note**: Directly using [LEMON](https://github.com/Jacob-yen/LEMON) to generate DL models from scratch is complicated and the massive generated models consumes disk spaces at TB level. It requires using LEMON's docker image and needs some edits to make the pipeline work. LEMON generates Keras models (hundreds of Gigabytes and even over 1 Terabyte). To evaluate it under TVM, we also need to covert these Keras models into TIR files. 
 
 To ease the reproduction procedure, we directly provide the minimized valuable TIR files converted from LEMON:
 
@@ -163,6 +171,8 @@ TBD@Sen
 - expected time: 10 hours
 - to reproduce:
 
+**Note**: this experiment runs for over 4 hours. As is specified in Section 4.5 of our paper, TVMFuzz requires no coverage support that we first run TVMFuzz on non-instrumented TVM binary (for best performance and fairness) for 4 hours and we then evaluate TVMFuzz's output TIR files on instrumented binary (about 6 hours). 
+
 ```shell
 # In the container
 cd /tzer
@@ -182,7 +192,7 @@ Check `/tzer/cov.png`.
 
 
 
-### Claim 3: RQ2 - Ablation Study (20 hours)
+### Claim 3️⃣: RQ2 - Ablation Study (20 hours)
 
 We list steps to reproduce results in Section 5.2.
 
@@ -264,7 +274,7 @@ Check `/tzer/cov.png`.
 
 
 
-### Claim 4: RQ3 - Parameter Sensitivity (44 hours)
+### Claim 4️⃣: RQ3 - Parameter Sensitivity (44 hours)
 
 We list steps to reproduce results in Section 5.3.
 
@@ -336,7 +346,7 @@ Check `/tzer/cov.png`.
 
 
 
-### Claim 5: RQ4 - Bug Detection Effectiveness
+### Claim 5️⃣: RQ4 - Bug Detection Effectiveness
 
 We list steps to reproduce results in Section 5.4.
 
