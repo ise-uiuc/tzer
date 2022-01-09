@@ -62,19 +62,6 @@ index f5735ff4d..47343b0bb 100644
 +  target_link_libraries(fuzz_me PUBLIC tvm tvm_runtime pthread)
 +endif(USE_LIBFUZZ)
 \ No newline at end of file
-diff --git a/cmake/config.cmake b/cmake/config.cmake
-index 8d8186c1b..9b490a98b 100644
---- a/cmake/config.cmake
-+++ b/cmake/config.cmake
-@@ -119,7 +119,7 @@ set(USE_MICRO_STANDALONE_RUNTIME OFF)
- # - OFF: disable llvm, note this will disable CPU codegen
- #        which is needed for most cases
- # - /path/to/llvm-config: enable specific LLVM when multiple llvm-dev is available.
--set(USE_LLVM OFF)
-+set(USE_LLVM ON)
- 
- #---------------------------------------------
- # Contrib libraries
 diff --git a/fuzz_me.cc b/fuzz_me.cc
 new file mode 100644
 index 000000000..1d9a0820a
