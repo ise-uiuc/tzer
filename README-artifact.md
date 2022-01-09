@@ -79,6 +79,7 @@ Environment variables to control the algorithm options (added the prefix of comm
 
 - `PASS=1` to enable pass mutation;
 - `NO_SEEDS=1` to disable initial seeds (start from an empty function);
+- `LEMON=1` to use LEMON seeds instead of Tzer's seeds;
 - `NO_COV=1` to disable the coverage feedback;
 - `TIR_REC=1`to record generated TIR files (for evaluating non-coverage version);
 
@@ -88,7 +89,7 @@ Environment variables to control the algorithm options (added the prefix of comm
 
 ## Step by Step Instructions
 
-### Claim 1️⃣: Bug Finding (25 minutes)
+### Claim 1️⃣: Bug Finding (20 minutes)
 
 > (Abstract) "To date, Tzer has detected **40** previously unknown bugs for TVM, with **30** bugs confirmed and **24** bugs fixed (PR merged)."
 
@@ -274,7 +275,7 @@ Check `/tzer/cov.png`.
 
 
 
-### Claim 4️⃣: RQ3 - Parameter Sensitivity (44 hours)
+### Claim 4️⃣: RQ3 - Parameter Sensitivity (40 hours)
 
 We list steps to reproduce results in Section 5.3.
 
@@ -317,14 +318,14 @@ python3 src/plot_cov.py -f tzer-with-seed tzer-without-seed -cl 20000
 
 Check `/tzer/cov.png`.
 
-#### Figure 8 and 9 (40 hours)
+#### Figure 8 and 9 (36 hours)
 
 ```shell
 cd /tzer
 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-1 --tolerance 1
 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-2 --tolerance 2
 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-3 --tolerance 3
-PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-4 --tolerance 4
+cp -r /tzer/tzer-tzer-seed /tzer/tolerance-4 # reuse `/tzer/tzer-tzer-seed` from experiments for Fig. 5.
 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-5 --tolerance 5
 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-6 --tolerance 6
 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 240 --report-folder tolerance-7 --tolerance 7
@@ -346,7 +347,7 @@ Check `/tzer/cov.png`.
 
 
 
-### Claim 5️⃣: RQ4 - Bug Detection Effectiveness
+### Claim 5️⃣: RQ4 - Bug Detection Effectiveness (15 minutes)
 
 We list steps to reproduce results in Section 5.4.
 
