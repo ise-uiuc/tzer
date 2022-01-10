@@ -15,7 +15,8 @@
 ---
 
 <p align="center">
-    <a href="#Reproduce-Bugs">Reproduce Bugs</a>  •
+    <a href="#Artifact">Artifact</a> •
+    <a href="#Reproduce-Bugs">Reproduce Bugs</a> •
     <a href="#Quick-Start">Quick Start</a> •
     <a href="#Installation">Installation</a> •
     <a href="#Extend-Tzer">Extend Tzer</a>
@@ -23,7 +24,11 @@
 
 # Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation
 
-This is the artifact of Tzer for anonymous review in OOPSLA'22. 
+This is the source code repo for "Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation" (Conditionally accepted by OOPSLA'22).
+
+## Artifact
+
+Please check [here](https://tzer.readthedocs.io/en/latest/markdown/artifact.html) for detailed documentation of the artifact prepared for OOPSLA'22.
 
 ## Reproduce Bugs
 
