@@ -342,7 +342,7 @@ PASS=1 RANDOM_PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 3 --report-folder
 `````{admonition} **Claim 3.5:** Result of "(5): (3) + Evolutionary IR-Pass Mutation" in Fig. 6
 :class: important
 
-- This experiment can reuse `/tzer/tzer-tzer-seed` from experiments for Figure 5.
+- This experiment can reuse `/tzer/tzer-tzer-seed` (Claim 2.1) for [Figure 5](#figure-5-and-table-2-18-minutes).
 - report folder: `/tzer/ablation-5` <- `/tzer/tzer-tzer-seed`
 
 ```shell
@@ -414,7 +414,7 @@ NO_SEEDS=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 3 --report-folder tz
 
 `````{admonition} **Claim 4.2:** Result of "Tzer with Seeds" in Fig. 7
 :class: important
-- This experiment can reuse `/tzer/tzer-tzer-seed` from experiments for Figure 5.
+- This experiment can reuse `/tzer/tzer-tzer-seed` (Claim 2.1) for [Figure 5](#figure-5-and-table-2-18-minutes).
 - report folder: `/tzer/tzer-with-seed` <- `/tzer/tzer-tzer-seed`
 
 ```shell
