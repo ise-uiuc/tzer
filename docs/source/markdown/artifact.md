@@ -6,7 +6,10 @@
     <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
 	<a href="https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
     <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
+    <a href="https://tzer.readthedocs.io/en/latest/markdown/artifact.html" title="Artifact"><img src="https://img.shields.io/badge/Artifact-OOPSLA22-brightgreen.svg"></a>
 </p>
+
+For best reading experience, you are highly recommended to view [**this overview**](https://tzer.readthedocs.io/en/latest/markdown/artifact.html) on your web browser.
 
 ## Get Started
 
@@ -66,10 +69,10 @@ docker start -a -i tzer-artifact
 ```
 `````
 
-### Command line parameters
+### Explanation of parameters and file names
 
-<details><summary><b>Report folder contents</b> <i>[click to expand]</i></summary>
-<div>
+```{admonition} Report folder contents
+:class: tip
 
 - `cov_by_time.txt`: a csv file where columns means "time" (second) and edge coverage;
 - `valid_seed_new_cov_count.txt`: number of generated valid tests with new coverage;
@@ -78,11 +81,10 @@ docker start -a -i tzer-artifact
 - `meta.txt`: metadata including git version of TVM and experiment time;
 - `tir_by_time.pickle`: generated <F, P> (i.e., TIR and Passes) files (if `TIR_REC=1` is set);
 
-</div>
-</details>
+```
 
-<details><summary><b>Main commandline options</b> <i>[click to expand]</i></summary>
-<div>
+```{admonition} Main commandline options
+:class: tip
 
 Commandline options (added as tail of commands):
 
@@ -97,9 +99,7 @@ Environment variables to control the algorithm options (added the prefix of comm
 - `LEMON=1` to use LEMON seeds instead of Tzer's seeds;
 - `NO_COV=1` to disable the coverage feedback;
 - `TIR_REC=1`to record generated TIR files (for evaluating non-coverage version);
-
-</div>
-</details>
+```
 
 
 ## Step by Step Instructions
