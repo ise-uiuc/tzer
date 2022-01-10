@@ -131,9 +131,9 @@ Note that there will be randomness in fuzzing given different system performance
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
 ```
 
-````{admonition} Minimal and Full Experiement 
+````{admonition} Minimal and Full Experiments
 :class: tip
-In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
+In our paper, all fuzzing experiments except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
 To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
 
@@ -210,7 +210,7 @@ python3 src/get_cov_lemon.py --report-folder lemon --result-folder=/tzer/lemon_r
 ```shell
 # In the container
 cd /tzer/tvm_cov_patch/tvm-libfuzz/build
-python3 run_libfuzz.py -t 180  # for full 4-hour experiement: use `-t 14400`
+python3 run_libfuzz.py -t 180  # for full 4-hour experiment: use `-t 14400`
 cd /tzer
 python3 src/get_cov_libfuzz.py --report-folder libfuzz --build-folder /tzer/tvm_cov_patch/tvm-libfuzz/build
 ```
@@ -279,9 +279,9 @@ Note that there will be randomness in fuzzing given different system performance
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
 ```
 
-````{admonition} Minimal and Full Experiement 
+````{admonition} Minimal and Full Experiments
 :class: tip
-In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
+In our paper, all fuzzing experiments except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
 To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
 ````
@@ -388,9 +388,9 @@ Note that there will be randomness in fuzzing given different system performance
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
 ```
 
-````{admonition} Minimal and Full Experiement 
+````{admonition} Minimal and Full Experiments
 :class: tip
-In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
+In our paper, all fuzzing experiments except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
 To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
 ````
@@ -506,7 +506,7 @@ We list steps to reproduce results in Section 5.4 (i.e., **Table 4**).
 
 `````{admonition} **Claim 5.1:** Detectable Valid Bugs in Tab. 4
 :class: important
-The classification and detectable bugs is summarised in this [link](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing).
+The classification and detectable bugs are summarised in this [link](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing).
 Columns 5-7 from the [Google Sheet](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing) specifies detectable bugs by other baselines among all bugs detected by Tzer which justifies column 2-4 in Table 4 of our paper.
 Column 8 from the [Google Sheet](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing) indicates the bugs that do not have to be triggered by combinations of passes and IRs.
 `````
