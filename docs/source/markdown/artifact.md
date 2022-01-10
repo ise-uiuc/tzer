@@ -438,7 +438,7 @@ To visualize the results:
 ```shell
 # Inside the container
 cd /tzer
-python3 src/plot_cov.py -f tzer-with-seed tzer-without-seed -cl 20000
+python3 src/plot_cov.py -f tzer-with-seed tzer-without-seed -cl 15000
 ```
 
 The figure is now available at `/tzer/cov.png` (inside the container). 
