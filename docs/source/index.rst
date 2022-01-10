@@ -6,6 +6,10 @@
 Welcome to Tzer's documentation!
 ================================
 
+Check our `GitHub`_ repo!
+
+.. _GitHub: https://github.com/Tzer-AnonBot/tzer
+
 .. toctree::
    :maxdepth: 1
 

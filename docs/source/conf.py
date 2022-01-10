@@ -31,6 +31,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.githubpages',
+    'sphinx.ext.autosectionlabel',
     'myst_parser',
     'numpydoc',
 ]
