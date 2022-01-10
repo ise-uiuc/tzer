@@ -119,11 +119,11 @@ We compiled the confirmed bug under the Google Sheet [**LINK**](https://docs.goo
 ```
 
 
-### **Evidence 2**: RQ1 - Comparison with Existing Work (26 minutes)
+### **Evidence 2**: RQ1 - Comparison with Existing Work (18 minutes)
 
 We list steps to reproduce results in Section 5.1 (i.e., **Figure 5** and **Table 2**).
 
-#### Figure 5 and Table 2 (26 minutes)
+#### Figure 5 and Table 2 (18 minutes)
 
 ```{admonition} Randomness in Experiments
 :class: caution
