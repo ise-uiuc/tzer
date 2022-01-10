@@ -174,7 +174,7 @@ class Fuzzer:
         except KeyboardInterrupt as e:
             raise e
         except Exception as e:
-            print("Generation failure")
+            # print("Generation failure")
             # assert_no_cov(traceback.print_exc)
             self.n_failed += 1
             self.update_loop_info(pbar, 0, 0, 'gen-failure')
