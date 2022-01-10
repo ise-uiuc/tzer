@@ -60,11 +60,11 @@ exit                   # Exit the container.
 
 # -- Outside the container.
 # Copy the file called `/tzer/foo.txt` from the container:
-docker cp tzer-artifact:/tzer/foo.txt .
+sudo docker cp tzer-artifact:/tzer/foo.txt .
 ls foo.txt             # `foo.txt` is now on your host system.
 
 # resume the container:
-docker start -a -i tzer-artifact
+sudo docker start -a -i tzer-artifact
 # --
 ```
 `````
@@ -258,11 +258,11 @@ You can view it by copying it from the container to the host system.
 exit
 
 # Outside the container (host)
-docker cp tzer-artifact:/tzer/cov.png .
+sudo docker cp tzer-artifact:/tzer/cov.png .
 ls cov.png # You get the file; please view it by double-clicking it on your host system.
 
 # To re-enter the container:
-docker start -a -i tzer-artifact
+sudo docker start -a -i tzer-artifact
 ```
 
 Opening `cov.png`, you would see something like:
@@ -386,11 +386,11 @@ You can view it by copying it from the container to the host system.
 exit
 
 # Outside the container (host)
-docker cp tzer-artifact:/tzer/cov.png .
+sudo docker cp tzer-artifact:/tzer/cov.png .
 ls cov.png # You get the file; please view it by double-clicking it on your host system.
 
 # To re-enter the container:
-docker start -a -i tzer-artifact
+sudo docker start -a -i tzer-artifact
 ```
 
 Opening `cov.png`, you would see something like:
@@ -462,11 +462,11 @@ You can view it by copying it from the container to the host system.
 exit
 
 # Outside the container (host)
-docker cp tzer-artifact:/tzer/cov.png .
+sudo docker cp tzer-artifact:/tzer/cov.png .
 ls cov.png # You get the file; please view it by double-clicking it on your host system.
 
 # To re-enter the container:
-docker start -a -i tzer-artifact
+sudo docker start -a -i tzer-artifact
 ```
 
 Opening `cov.png`, you would see something like:
@@ -515,11 +515,11 @@ You can view it by copying it from the container to the host system.
 exit
 
 # Outside the container (host)
-docker cp tzer-artifact:/tzer/cov.png .
+sudo docker cp tzer-artifact:/tzer/cov.png .
 ls cov.png # You get the file; please view it by double-clicking it on your host system.
 
 # To re-enter the container:
-docker start -a -i tzer-artifact
+sudo docker start -a -i tzer-artifact
 ```
 
 Opening `cov.png`, you would see something like:
