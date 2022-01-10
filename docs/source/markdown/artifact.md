@@ -271,9 +271,14 @@ Opening `cov.png`, you would see something like:
 
 There are three subplots in this figure:
 
-- **Coverage Time Efficiency** shows the edge coverage different methods can achieve within the same amount of time (measured in seconds).
-- **Coverage Iteration Efficiency** shows the edge coverage different methods can achieve with the same number of generated test cases.
-- **Iteration Speed** indicates how fast each method can generate a new test case.
+- **Coverage Time Efficiency** shows the coverage that different methods can achieve <u>within the same amount of time</u> (measured in seconds).
+- **Coverage Iteration Efficiency** shows the coverage that different methods can achieve <u>with the same number of generated test cases</u>. This indicates the quality of generated test samples for each method.
+- **Iteration Speed** indicates <u>how fast</u> a method generates new test cases.
+
+```{admonition} **Coverage Iteration Efficiency** and **Iteration Speed** are inapplicable to *lemon* and *libfuzz*
+:class: caution
+**Coverage Iteration Efficiency** and **Iteration Speed** are not applicable to *lemon* and *libfuzz* as their implementations only record test samples that contributes to new coverage making them look flat in these 2 figures.
+```
 `````
 
 
@@ -287,6 +292,8 @@ We list steps to reproduce results in Section 5.2 (i.e., **Figure 6**).
 :class: caution
 Note that there will be randomness in fuzzing given different system performance and random seeds.
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent in the long run (say 4 hours).
+
+Specifically, as the minimal experiements only run fuzzers for 3 minutes, the coverage trend superiority for **claim 3.4** and **claim 3.5** can be randomized.
 ```
 
 ````{admonition} Minimal and Full Experiments
