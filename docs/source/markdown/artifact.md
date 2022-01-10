@@ -382,7 +382,7 @@ docker start -a -i tzer-artifact
 
 Opening `cov.png`, you would see something like:
 
-![](../../imgs/rq1.png)
+![](../../imgs/rq2.png)
 `````
 
 
@@ -458,7 +458,7 @@ docker start -a -i tzer-artifact
 
 Opening `cov.png`, you would see something like:
 
-![](../../imgs/rq1.png)
+![](../../imgs/rq3-1.png)
 `````
 
 #### Figure 8 and 9 (29 minutes)
@@ -491,7 +491,7 @@ To visualize the results:
 ```shell
 # Inside the container
 cd /tzer
-python3 src/plot_cov.py -f ./tolerance-* -cl 23000
+python3 src/plot_cov.py -f ./tolerance-* -cl 18000
 ```
 
 The figure is now available at `/tzer/cov.png` (inside the container). 
@@ -508,6 +508,10 @@ ls cov.png # You get the file; please view it by double-clicking it on your host
 # To re-enter the container:
 docker start -a -i tzer-artifact
 ```
+
+Opening `cov.png`, you would see something like:
+
+![](../../imgs/rq3-2.png)
 `````
 
 ### **Evidence 5**: RQ4 - Bug Detection Effectiveness (10 minutes)
