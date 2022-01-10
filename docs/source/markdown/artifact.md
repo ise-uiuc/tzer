@@ -233,7 +233,7 @@ cd /tzer/TVMFuzz
 # Run TVMFuzz on non-instrumented TVM
 TVM_HOME=/tzer/tvm_cov_patch/tvm-no-cov PYTHONPATH=/tzer/tvm_cov_patch/tvm-no-cov/python python3 src/main_tvmfuzz.py --fuzz-time 3 --report-folder tvm-fuzz
 # Replay the TIR files on instrumented TVM
-TVM_HOME=/tzer/tvm_cov_patch/tvm PYTHONPATH=/tzer/tvm_cov_patch/tvm/python python3 src/get_cov.py --folders tvm-fuzz
+TVM_HOME=/tzer/tvm_cov_patch/tvm PYTHONPATH=/tzer/tvm_cov_patch/tvm/python python3 src/get_cov.py --folders tvm-fuzz --timeout 2
 cd /tzer
 mv /tzer/TVMFuzz/tvm-fuzz ./
 ```
