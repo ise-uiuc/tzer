@@ -128,7 +128,7 @@ We list steps to reproduce results in Section 5.1 (i.e., **Figure 5** and **Tabl
 ```{admonition} Randomness in Experiments
 :class: caution
 Note that there will be randomness in fuzzing given different system performance and random seeds.
-This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
+This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent in the long run (say 4 hours).
 ```
 
 ````{admonition} Minimal and Full Experiments
@@ -276,7 +276,7 @@ We list steps to reproduce results in Section 5.2 (i.e., **Figure 6**).
 ```{admonition} Randomness in Experiments
 :class: caution
 Note that there will be randomness in fuzzing given different system performance and random seeds.
-This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
+This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent in the long run (say 4 hours).
 ```
 
 ````{admonition} Minimal and Full Experiments
@@ -385,7 +385,7 @@ We list steps to reproduce results in Section 5.3 (i.e., **Figure 7, 8, 9**).
 ```{admonition} Randomness in Experiments
 :class: caution
 Note that there will be randomness in fuzzing given different system performance and random seeds.
-This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent.
+This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent in the long run (say 4 hours).
 ```
 
 ````{admonition} Minimal and Full Experiments
