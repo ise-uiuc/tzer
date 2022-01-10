@@ -135,7 +135,7 @@ This means detailed reproduced data might not be strictly equivalent to that pre
 :class: tip
 In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
-To conduct the full experiments, please replace the commind line argument `--fuzz-time 3` to `--fuzz-time 240`.
+To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
 
 For instance of claim 2.1:
 ```bash
@@ -283,7 +283,7 @@ This means detailed reproduced data might not be strictly equivalent to that pre
 :class: tip
 In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
-To conduct the full experiments, please replace the commind line argument `--fuzz-time 3` to `--fuzz-time 240`.
+To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
 ````
 
 `````{admonition} **Claim 3.1:** Result of "(1): General IR Mut. (No Cov.)" in Fig. 6
@@ -392,7 +392,7 @@ This means detailed reproduced data might not be strictly equivalent to that pre
 :class: tip
 In our paper, all fuzzing experiements except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
-To conduct the full experiments, please replace the commind line argument `--fuzz-time 3` to `--fuzz-time 240`.
+To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
 ````
 
 #### Figure 7 (5 minutes)
