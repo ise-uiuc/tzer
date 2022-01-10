@@ -264,6 +264,10 @@ ls cov.png # You get the file; please view it by double-clicking it on your host
 # To re-enter the container:
 docker start -a -i tzer-artifact
 ```
+
+Opening `cov.png`, you would see something like:
+
+![](../../imgs/rq1.png)
 `````
 
 
@@ -375,6 +379,10 @@ ls cov.png # You get the file; please view it by double-clicking it on your host
 # To re-enter the container:
 docker start -a -i tzer-artifact
 ```
+
+Opening `cov.png`, you would see something like:
+
+![](../../imgs/rq1.png)
 `````
 
 
@@ -447,6 +455,10 @@ ls cov.png # You get the file; please view it by double-clicking it on your host
 # To re-enter the container:
 docker start -a -i tzer-artifact
 ```
+
+Opening `cov.png`, you would see something like:
+
+![](../../imgs/rq1.png)
 `````
 
 #### Figure 8 and 9 (29 minutes)
