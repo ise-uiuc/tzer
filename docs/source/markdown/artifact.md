@@ -115,7 +115,7 @@ Reproducing these bugs requires GPU environments and retrieving to the initial g
 
 ```{admonition} **Claim 1.2:** 30 confirmed and 24 fixed
 :class: important
-We compiled the confirmed bug under the Google Sheet [**LINK**](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing). Trackable links to PR/Bug reports are listed in the Google Sheet. Note that more than 1 bugs might be included for one PR/Issue link.
+We compiled the confirmed bug under the Google Sheet [**LINK**](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing). Trackable links to PR/Bug reports are listed in the Google Sheet. Note that more than 1 bug might be included for one PR/Issue link.
 ```
 
 
@@ -454,7 +454,7 @@ docker start -a -i tzer-artifact
 `````{admonition} **Claim 4.3:** Results of different $N_{max}$ in Fig. 8 and 9
 :class: important
 The value of argument `--tolerance` represents $N_{max}$ in the paper.
-To run $N_{max}$ from 1 to 10 (each of them costs 3 minutes except the reusing one):
+To run $N_{max}$ from 1 to 10 (each of them costs 3 minutes except the reused one):
 
 ```shell
 # Inside the container:
