@@ -184,7 +184,7 @@ LEMON=1 PASS=1 LOW=1 python3 src/main_tir.py --fuzz-time 3 --report-folder tzer-
 `````{admonition} **Claim 2.3:** Result of "LEMON" in Fig. 5 and Tab. 2
 :class: important
 - report folder: `/tzer/lemon`
-- expected time: 8 minutes
+- expected time: 3 minutes
 - to reproduce:
 
 ````{note}
@@ -196,7 +196,7 @@ LEMON generates Keras models (hundreds of Gigabytes and even over 1 Terabyte) in
 ```shell
 # In the container
 cd /tzer
-python3 src/get_cov_lemon.py --report-folder lemon --result-folder=/tzer/lemon_results
+python3 src/get_cov_lemon.py --report-folder lemon --result-folder=/tzer/lemon_results --timeout=180 # for full result: use `--timeout 14400`
 ```
 
 `````
