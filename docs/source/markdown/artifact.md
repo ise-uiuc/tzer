@@ -268,6 +268,12 @@ docker start -a -i tzer-artifact
 Opening `cov.png`, you would see something like:
 
 ![](../../imgs/rq1.png)
+
+There are three subplots in this figure:
+
+- **Coverage Time Efficiency** shows the edge coverage different methods can achieve within the same amount of time (measured in seconds).
+- **Coverage Iteration Efficiency** shows the edge coverage different methods can achieve with the same number of generated test cases.
+- **Iteration Speed** indicates how fast each method can generate a new test case.
 `````
 
 
