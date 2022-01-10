@@ -246,7 +246,7 @@ To visualize the results:
 ```shell
 # Inside the container
 cd /tzer
-# pythhon3 src/plot_cov.py -f [list of report-folders] -cl [y-axis bias]
+# python3 src/plot_cov.py -f [list of report-folders] -cl [y-axis bias]
 python3 src/plot_cov.py -f tzer-tzer-seed tzer-lemon-seed lemon libfuzz tvm-fuzz -cl 5000
 ```
 
