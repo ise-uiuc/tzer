@@ -235,7 +235,7 @@ TVM_HOME=/tzer/tvm_cov_patch/tvm-no-cov PYTHONPATH=/tzer/tvm_cov_patch/tvm-no-co
 # Replay the TIR files on instrumented TVM
 TVM_HOME=/tzer/tvm_cov_patch/tvm PYTHONPATH=/tzer/tvm_cov_patch/tvm/python python3 src/get_cov.py --folders tvm-fuzz
 cd /tzer
-mv /tzer/TVMFuzz/fvm-fuzz ./
+mv /tzer/TVMFuzz/tvm-fuzz ./
 ```
 `````
 
