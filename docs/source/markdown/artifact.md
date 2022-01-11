@@ -280,6 +280,9 @@ There are three subplots in this figure:
 :class: caution
 **Coverage Iteration Efficiency** and **Iteration Speed** are not applicable to *lemon* and *libfuzz* as their implementations only record test samples that contributes to new coverage making them look flat in these 2 figures.
 ```
+
+The first subfigure (**Coverage Time Efficiency**) depicts the coverage curves used in Figure 5. 
+The file called *valid_seed_new_cov_count.txt* under the report folder contains the number of *valuable tests*.
 `````
 
 
@@ -397,6 +400,8 @@ sudo docker start -a -i tzer-artifact
 Opening `cov.png`, you would see something like:
 
 ![](../../imgs/rq2.png)
+
+The first subfigure (**Coverage Time Efficiency**) depicts the coverage curves used in Figure 6. 
 `````
 
 
@@ -473,6 +478,8 @@ sudo docker start -a -i tzer-artifact
 Opening `cov.png`, you would see something like:
 
 ![](../../imgs/rq3-1.png)
+
+The 3 subfigures (**Coverage Time Efficiency**) present results used in Figure 7. 
 `````
 
 #### Figure 8 and 9 (29 minutes)
@@ -526,6 +533,9 @@ sudo docker start -a -i tzer-artifact
 Opening `cov.png`, you would see something like:
 
 ![](../../imgs/rq3-2.png)
+
+The first subfigure (**Coverage Time Efficiency**) depicts the coverage curves used in Figure 9. 
+Figure 8 shows the peak coverage of each setting/curve.
 `````
 
 ### **Evidence 5**: RQ4 - Bug Detection Effectiveness (10 minutes)
@@ -539,4 +549,5 @@ We list steps to reproduce results in Section 5.4 (i.e., **Table 4**).
 The classification and detectable bugs are summarised in this [link](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing).
 Columns 5-7 from the [Google Sheet](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing) specifies detectable bugs by other baselines among all bugs detected by Tzer which justifies column 2-4 in Table 4 of our paper.
 Column 8 from the [Google Sheet](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing) indicates the bugs that do not have to be triggered by combinations of passes and IRs.
+Note that each row in the Google Sheet might represent multiple bugs.
 `````
