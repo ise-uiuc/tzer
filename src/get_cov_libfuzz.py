@@ -115,6 +115,9 @@ class CovGetter:
                 with open(cov_by_time_fname, 'a') as f:
                     f.write(f'{time:.2f},{cov_now},\n')
 
+            valid_seed_fname = os.path.join(folder, 'valid_seed_new_cov_count.txt')
+            with open(valid_seed_fname, 'w') as f:
+                f.write(str(new_cov_valid_seeds_cnt))
             
             print(f'compile rate:{valid_seeds_cnt*100/all_seeds_cnt:.2f}')
             print(f'new coverage seed: {new_cov_valid_seeds_cnt}')
