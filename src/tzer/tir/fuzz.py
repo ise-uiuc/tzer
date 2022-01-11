@@ -43,7 +43,10 @@ class Fuzzer:
         __MAX_TIR_FAIL__ = config.tolerance
 
         if self.config.use_seeds:
-            seeds = seed.get_all_seeds()
+            if self.config.use_lemon_seeds:
+                seeds = seed.get_lemon_seeds()
+            else:
+                seeds = seed.get_all_seeds()
             print(colored('Running experiments with all seeds', 'green'))
         else:
             seeds = []

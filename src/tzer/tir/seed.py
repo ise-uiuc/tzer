@@ -1,5 +1,6 @@
 from typing import List
 
+import os
 import tvm
 # from tvm.script import ty
 import tvm.relay as relay
@@ -27,3 +28,15 @@ def relay_to_tir(relay_seeds) -> List[tir.PrimFunc]:
 def get_all_seeds() -> List[tir.PrimFunc]:
     return relay_to_tir(relay_seeds.MODEL_SEEDS)
 
+
+def get_lemon_seeds() -> List[tir.PrimFunc]:
+    tirs: List[tir.PrimFunc] = []
+    lemon_seeds_dir = '/tzer/lemon_seeds'
+    tir_files = os.listdir(lemon_seeds_dir)
+    for tir_file in tir_files:
+        tir_file_path = os.path.join(lemon_seeds_dir, tir_file)
+        with open(tir_file_path, 'r') as f:
+            data = f.read()
+        mod = tvm.ir.load_json(data)
+        tirs.extend([mod[v] for v in mod.get_global_vars()])
+    return tirs

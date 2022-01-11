@@ -15,6 +15,7 @@ class Config:
     max_generation_size: int
     max_node_size: int
     use_seeds: bool
+    use_lemon_seeds: bool
     use_coverage: bool
     use_coverage_feedback: bool
     mutate_control_flow_with_general_purpose_mutators: bool
@@ -66,6 +67,7 @@ def config_from_args(args) -> Config:
         max_node_size=args.max_node_size,
         max_generation_size=args.max_gen,
         use_seeds=os.getenv('NO_SEEDS') is None,
+        use_lemon_seeds=os.getenv('LEMON') is not None,
         use_coverage=os.getenv('NO_COV') is None,
         use_coverage_feedback=os.getenv('NO_FEEDBACK') is None,
         record_tir=os.getenv('TIR_REC') is not None,
