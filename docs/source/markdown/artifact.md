@@ -34,7 +34,7 @@ Otherwise please follow the [**installation page**](https://docs.docker.com/engi
 # Pull docker image from docker hub;
 sudo docker run -it --name tzer-artifact tzerbot/oopsla
 # By using this command, you will "get into" the image like entering a virtual machine.
-# The session will be kept under the name "tzer-artifac"
+# The session will be kept under the name "tzer-artifact"
 
 # Inside the image; 
 cd tzer
@@ -87,7 +87,7 @@ sudo docker start -a -i tzer-artifact
 ```{admonition} Main commandline options
 :class: tip
 
-Commandline options (added as tail of commands):
+Commandline options (added as the tail of commands):
 
 - `--fuzz-time`: Time budget of fuzzing (minute);
 - `--tolerance`: Parameter $N_{max}$ in the paper (control the interleaving of IR and pass mutation);
@@ -136,7 +136,7 @@ This means detailed reproduced data might not be strictly equivalent to that pre
 :class: tip
 In our paper, all fuzzing experiments except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
-To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
+To conduct the full experiments, please replace the command line argument `--fuzz-time 3` with `--fuzz-time 240`.
 
 For instance of claim 2.1:
 ```bash
@@ -150,8 +150,8 @@ PASS=1 LOW=1 python3 src/main_tir.py   --fuzz-time 240   --report-folder tzer-tz
 
 Figure 5 and Table 2 can be reproduced under the same batch of experiments. There will be **5** sub-experiments for different fuzzers. For each experiment, the output is in the report folder. 
 
-Under the report folder, 2 files are relavant:
-1. `cov_by_time.txt`: for each it represents elapsed time (in seconds) and coverage splited by ",";
+Under the report folder, 2 files are relevant:
+1. `cov_by_time.txt`: for each it represents elapsed time (in seconds) and coverage split by ",";
 2. In `valid_seed_new_cov_count.txt`, the number represents the total number of valuable tests (initial seeds not taken into account);
 
 `````{admonition} **Claim 2.1:** Result of "Tzer" in Fig. 5 and Tab. 2
@@ -278,7 +278,7 @@ There are three subplots in this figure:
 
 ```{admonition} **Coverage Iteration Efficiency** and **Iteration Speed** are inapplicable to *lemon* and *libfuzz*
 :class: caution
-**Coverage Iteration Efficiency** and **Iteration Speed** are not applicable to *lemon* and *libfuzz* as their implementations only record test samples that contributes to new coverage making them look flat in these 2 figures.
+**Coverage Iteration Efficiency** and **Iteration Speed** are not applicable to *lemon* and *libfuzz* as their implementations only record test samples that contribute to new coverage making them look flat in these 2 figures.
 ```
 
 The first subfigure (**Coverage Time Efficiency**) depicts the coverage curves used in Figure 5. 
@@ -297,14 +297,14 @@ We list steps to reproduce results in Section 5.2 (i.e., **Figure 6**).
 Note that there will be randomness in fuzzing given different system performance and random seeds.
 This means detailed reproduced data might not be strictly equivalent to that presented in the paper, but the overall trend should be consistent in the long run (say 4 hours).
 
-Specifically, as the minimal experiements only run fuzzers for 3 minutes, the coverage trend superiority for **claim 3.4** and **claim 3.5** can be randomized.
+Specifically, as the minimal experiments only run fuzzers for 3 minutes, the coverage trend superiority for **claim 3.4** and **claim 3.5** can be randomized.
 ```
 
 ````{admonition} Minimal and Full Experiments
 :class: tip
 In our paper, all fuzzing experiments except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
-To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
+To conduct the full experiments, please replace the command line argument `--fuzz-time 3` with `--fuzz-time 240`.
 ````
 
 `````{admonition} **Claim 3.1:** Result of "(1): General IR Mut. (No Cov.)" in Fig. 6
@@ -419,7 +419,7 @@ This means detailed reproduced data might not be strictly equivalent to that pre
 :class: tip
 In our paper, all fuzzing experiments except Figure 10 run for **4 hours**. 
 To ease the effort of artifact evaluation, the following **minimal** experiments will run for **3 minutes** by default. 
-To conduct the full experiments, please replace the command line argument `--fuzz-time 3` to `--fuzz-time 240`.
+To conduct the full experiments, please replace the command line argument `--fuzz-time 3` with `--fuzz-time 240`.
 ````
 
 #### Figure 7 (5 minutes)
