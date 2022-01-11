@@ -479,7 +479,7 @@ Opening `cov.png`, you would see something like:
 
 ![](../../imgs/rq3-1.png)
 
-The 3 subfigures (**Coverage Time Efficiency**) present results used in Figure 7. 
+The 3 subfigures present results used in Figure 7. 
 `````
 
 #### Figure 8 and 9 (29 minutes)
