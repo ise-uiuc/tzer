@@ -210,3 +210,16 @@ coverage.pop()  # merge the top snapshot from the stack.
 3. pop: merge the snapshot of the sub-process and last stored snapshot (top of the stack) to get a complete coverage.
 
 Latency of the combo is optimized to ~1ms as we applied bit-level optimization.
+
+## Cite Us
+
+Please cite our paper if you find our contributions are helpful. :-)
+
+```
+@inproceedings{tzer-2022,
+  title={Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation},
+  author={Liu, Jiawei and Wei, Yuxiang and Yang, Sen and Deng, Yinlin and Zhang, Lingming},
+  booktitle={Proceedings of the ACM SIGPLAN Conference on Object-Oriented Programming Systems, Languages, and Applications},
+  year={2022}
+}
+```
