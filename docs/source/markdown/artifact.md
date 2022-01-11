@@ -78,7 +78,7 @@ sudo docker start -a -i tzer-artifact
 - `cov_by_time.txt`: a csv file where columns means "time" (second) and edge coverage;
 - `valid_seed_new_cov_count.txt`: number of generated valid tests with new coverage;
 - `${BUG_TYPE}_${BUG_ID}.error_message.txt`: error message snapshot of failures;
-- `${BUG_TYPE}_${BUG_ID}.ctx`: context data to reproduce bugs (stored in Pickle. See [report.py](src/tzer/tir/report.py#L124))
+- `${BUG_TYPE}_${BUG_ID}.ctx`: context data to reproduce bugs (stored in Pickle)
 - `meta.txt`: metadata including git version of TVM and experiment time;
 - `tir_by_time.pickle`: generated <F, P> (i.e., TIR and Passes) files (if `TIR_REC=1` is set);
 
