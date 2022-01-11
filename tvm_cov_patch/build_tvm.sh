@@ -52,5 +52,5 @@ cmake .. -DCMAKE_BUILD_TYPE=Release \
 make -j$(nproc)
 cd ..
 echo "Successfully installed LibFuzzer for TVM"
-echo "To run the libfuzzer driver, simply run `./build/fuzz_me`"
-echo "You need to manually stop `fuzz_me` otherwise it will run forever."
+echo "To run the libfuzzer driver, simply run ./build/fuzz_me"
+echo "You need to manually stop fuzz_me otherwise it will run forever."
