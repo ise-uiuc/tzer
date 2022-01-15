@@ -1,0 +1,34 @@
+START TIME: 2021-10-05 01:08:43.911724Fuzzer GIT HASH: cde96b1a9851b64dcc606ee3e597513f1a42fc25
+Fuzzer GIT STATUS: 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	rq3_4-joint-fuzz-random-pass-baseline/
+	rq3_4.sh
+	rq4_3-tolerance-5-mut/
+	rq4_3-tolerance-5-rand_gen/
+	rq4_3.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+TVM GIT HASH: cde96b1a9851b64dcc606ee3e597513f1a42fc25
+TVM GIT STATUS: 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	rq3_4-joint-fuzz-random-pass-baseline/
+	rq3_4.sh
+	rq4_3-tolerance-5-mut/
+	rq4_3-tolerance-5-rand_gen/
+	rq4_3.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+

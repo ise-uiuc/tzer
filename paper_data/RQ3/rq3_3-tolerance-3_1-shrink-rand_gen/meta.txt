@@ -1,0 +1,52 @@
+START TIME: 2021-10-05 19:22:27.922957Fuzzer GIT HASH: fea60d1aa65fb97278d88985292ff0eb347b94b3
+Fuzzer GIT STATUS: 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   src/tzer/tir/fuzz.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	rq3_4-joint-fuzz-random-pass-baseline/
+	rq3_4.sh
+	rq4_3-tolerance-1-rand_gen/
+	rq4_3-tolerance-3_1-shrink-rand_gen/
+	rq4_3-tolerance-5-mut/
+	rq4_3-tolerance-5-rand_gen/
+	rq4_3-tolerance-5_1-shrink-rand_gen/
+	rq4_3-tolerance-5_5-shrink-rand_gen/
+	rq4_3.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+TVM GIT HASH: fea60d1aa65fb97278d88985292ff0eb347b94b3
+TVM GIT STATUS: 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   src/tzer/tir/fuzz.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	rq3_4-joint-fuzz-random-pass-baseline/
+	rq3_4.sh
+	rq4_3-tolerance-1-rand_gen/
+	rq4_3-tolerance-3_1-shrink-rand_gen/
+	rq4_3-tolerance-5-mut/
+	rq4_3-tolerance-5-rand_gen/
+	rq4_3-tolerance-5_1-shrink-rand_gen/
+	rq4_3-tolerance-5_5-shrink-rand_gen/
+	rq4_3.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+

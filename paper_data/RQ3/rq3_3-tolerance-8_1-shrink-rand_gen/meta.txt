@@ -1,0 +1,70 @@
+START TIME: 2021-10-08 11:10:49.594455Fuzzer GIT HASH: 7c046ea48e38cf661b6e26d21142acc7cbd17c35
+Fuzzer GIT STATUS: 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	rq2.sh
+	rq2_1-ir-no_cov-general/
+	rq2_2-ir-cov-general/
+	rq2_3-ir-cov-general-specific/
+	rq2_4-ir-cov-general-specific-rand_pass/
+	rq3.sh
+	rq3_2-tolerance-5_1-no_seeds-shrink-rand_gen/
+	rq3_3-tolerance-1_1-no_shrink-rand_gen/
+	rq3_3-tolerance-1_1-shrink-rand_gen/
+	rq3_3-tolerance-2_1-shrink-rand_gen/
+	rq3_3-tolerance-3_1-shrink-rand_gen/
+	rq3_3-tolerance-4_1-shrink-rand_gen/
+	rq3_3-tolerance-5_1-no_shrink-rand_gen/
+	rq3_3-tolerance-5_1-shrink-mut/
+	rq3_3-tolerance-5_1-shrink-rand_gen/
+	rq3_3-tolerance-5_5-shrink-rand_gen/
+	rq3_3-tolerance-6_1-shrink-rand_gen/
+	rq3_3-tolerance-7_1-shrink-rand_gen/
+	rq3_3-tolerance-8_1-shrink-rand_gen/
+	rq3_3-tolerance-9_1-shrink-rand_gen/
+	rq3_4.sh
+	rq4_3-10_6.sh
+	rq4_3.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+TVM GIT HASH: 7c046ea48e38cf661b6e26d21142acc7cbd17c35
+TVM GIT STATUS: 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	rq2.sh
+	rq2_1-ir-no_cov-general/
+	rq2_2-ir-cov-general/
+	rq2_3-ir-cov-general-specific/
+	rq2_4-ir-cov-general-specific-rand_pass/
+	rq3.sh
+	rq3_2-tolerance-5_1-no_seeds-shrink-rand_gen/
+	rq3_3-tolerance-1_1-no_shrink-rand_gen/
+	rq3_3-tolerance-1_1-shrink-rand_gen/
+	rq3_3-tolerance-2_1-shrink-rand_gen/
+	rq3_3-tolerance-3_1-shrink-rand_gen/
+	rq3_3-tolerance-4_1-shrink-rand_gen/
+	rq3_3-tolerance-5_1-no_shrink-rand_gen/
+	rq3_3-tolerance-5_1-shrink-mut/
+	rq3_3-tolerance-5_1-shrink-rand_gen/
+	rq3_3-tolerance-5_5-shrink-rand_gen/
+	rq3_3-tolerance-6_1-shrink-rand_gen/
+	rq3_3-tolerance-7_1-shrink-rand_gen/
+	rq3_3-tolerance-8_1-shrink-rand_gen/
+	rq3_3-tolerance-9_1-shrink-rand_gen/
+	rq3_4.sh
+	rq4_3-10_6.sh
+	rq4_3.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+

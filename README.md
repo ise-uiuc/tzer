@@ -28,7 +28,7 @@ This is the source code repo for "Coverage-Guided Tensor Compiler Fuzzing with J
 
 ## Artifact
 
-Please check [here](https://tzer.readthedocs.io/en/latest/markdown/artifact.html) for detailed documentation of the artifact prepared for OOPSLA'22.
+Please check [**here**](https://tzer.readthedocs.io/en/latest/markdown/artifact.html) for detailed documentation of the artifact prepared for OOPSLA'22. The raw data of our paper can be found in the `paper_data` folder with visualization utilities.
 
 ## Reproduce Bugs
 

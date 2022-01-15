@@ -105,6 +105,8 @@ Environment variables to control the algorithm options (added the prefix of comm
 
 ## Step by Step Instructions
 
+In this section, we provide step-by-step instructions to reproduce results in our paper. Notably, the original data used in our paper (along with the visualization scripts) is also released in our [GitHub](https://github.com/Tzer-AnonBot/tzer) repo (the `paper_data` folder).
+
 ### **Evidence 1**: Bug Finding (15 minutes)
 
 > (Abstract) "To date, Tzer has detected **40** previously unknown bugs for TVM, with **30** bugs confirmed and **24** bugs fixed (PR merged)."
@@ -550,4 +552,81 @@ The classification and detectable bugs are summarised in this [link](https://doc
 Columns 5-7 from the [Google Sheet](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing) specifies detectable bugs by other baselines among all bugs detected by Tzer which justifies column 2-4 in Table 4 of our paper.
 Column 8 from the [Google Sheet](https://docs.google.com/spreadsheets/d/1CFHUBtCtuPOrGw7W-GLLXdpV3wdJHUDdP43UvKkAE4Q/edit?usp=sharing) indicates the bugs that do not have to be triggered by combinations of passes and IRs.
 Note that each row in the Google Sheet might represent multiple bugs.
+`````
+
+### Original Data in the Paper
+
+We show how to use the original data to reproduce exactly the same figures used in our paper.
+
+`````{admonition} Preparation
+Before start, please update the repo to get `paper_data` (original data).
+```shell
+# In the container
+cd /tzer
+git pull # Make sure the repo is up-to-date
+ls paper_data
+```
+`````
+
+`````{admonition} Plotting original figures in the paper
+:class: important
+````{admonition} **Figure 5 for RQ1**
+:class: important
+```bash
+# In the container
+cd /tzer/RQ1
+python3 plot_cov.py
+```
+The output figure is now available under `/tzer/paper_data/RQ1/baseline_cov.{pdf|png}`.
+````
+
+````{admonition} **Figure 6 for RQ2**
+:class: important
+```bash
+# In the container
+cd /tzer/RQ2
+python3 plot_cov.py
+```
+The output figure is now available under `/tzer/paper_data/RQ2/ablation_cov.{pdf|png}`.
+````
+
+````{admonition} **Figure 7 for RQ3**
+:class: important
+```bash
+# In the container
+cd /tzer/RQ3
+python3 plot_cov_seeds.py
+```
+The output figure is now available under `/tzer/paper_data/RQ3/seeds_complete.{pdf|png}`.
+````
+
+````{admonition} **Figure 8 for RQ3**
+:class: important
+```bash
+# In the container
+cd /tzer/RQ3
+python3 plot_nmax_bar_x.py
+```
+The output figure is now available under `/tzer/paper_data/RQ3/nmax_peak.{pdf|png}`.
+````
+
+````{admonition} **Figure 9 for RQ3**
+:class: important
+```bash
+# In the container
+cd /tzer/RQ3
+python3 plot_nmax.py
+```
+The output figure is now available under `/tzer/paper_data/RQ3/nmax.{pdf|png}`.
+````
+
+````{admonition} **Figure 10 for RQ3**
+:class: important
+```bash
+# In the container
+cd /tzer/RQ3
+python3 plot_cov_24h.py
+```
+The output figure is now available under `/tzer/paper_data/RQ3/24h.{pdf|png}`.
+````
 `````
