@@ -8,7 +8,7 @@ Welcome to Tzer's documentation!
 
 Check our `GitHub`_ repo!
 
-.. _GitHub: https://github.com/Tzer-AnonBot/tzer
+.. _GitHub: https://github.com/ise-uiuc/tzer
 
 .. toctree::
    :maxdepth: 1

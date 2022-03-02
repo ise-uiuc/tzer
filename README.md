@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/DetectedBug-40-brightgreen.svg">
     <img src="https://img.shields.io/badge/Confirmed-30-brightgreen.svg">
     <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
-	<a href="https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+	<a href="https://colab.research.google.com/github/ise-uiuc/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
     <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
     <a href="https://tzer.readthedocs.io/en/latest/markdown/artifact.html" title="Artifact"><img src="https://img.shields.io/badge/Artifact-OOPSLA22-brightgreen.svg"></a>
 </p>
@@ -34,7 +34,7 @@ Please check [**here**](https://tzer.readthedocs.io/en/latest/markdown/artifact.
 
 Till submission, Tzer has been detected **40** bugs for TVM with **30 confirmed** and **24 fixed** (merged in the latest branch). Due to the anonymous review policy of OOPSLA, the links of actual bug reports will be provided after the review process.
 
-We provide strong reproducibility of our work. **To reproduce all bugs, all you need to do is a single click [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tzer-AnonBot/tzer/blob/main/bug-report.ipynb) on your browser**. Since some bugs need to be triggered by some complex GPU settings, to maximumly ease the hardware and software effort, the bugs are summarized in a Google Colab environment (No GPU required, but just a browser!).
+We provide strong reproducibility of our work. **To reproduce all bugs, all you need to do is a single click [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ise-uiuc/tzer/blob/main/bug-report.ipynb) on your browser**. Since some bugs need to be triggered by some complex GPU settings, to maximumly ease the hardware and software effort, the bugs are summarized in a Google Colab environment (No GPU required, but just a browser!).
 
 ## Quick Start
 
@@ -141,7 +141,7 @@ docker run --rm -it tzerbot/oopsla
 
 Build Tzer under a docker environment! Make sure you have [docker](https://docs.docker.com/get-docker/) installed.
 
-1. `git clone https://github.com/Tzer-AnonBot/tzer.git && cd tzer`
+1. `git clone https://github.com/ise-uiuc/tzer.git && cd tzer`
 2. `docker build --tag tzer-oopsla:eval .`
 3. `docker run --rm -it tzer-oopsla:eval`
 
@@ -167,7 +167,7 @@ sudo apt install -y clang cmake git python3
 Build TVM and Tzer:
 
 ```shell
-git clone https://github.com/Tzer-AnonBot/tzer.git
+git clone https://github.com/ise-uiuc/tzer.git
 cd tzer/tvm_cov_patch
 
 # Build TVM with intruments
@@ -191,7 +191,7 @@ export PYTHONPATH=$TVM_HOME/python
 
 ## Extend Tzer
 
-We implemented many re-usable functionalities for future and open research! To easily implement other coverage-guided fuzzing algorithm for TVM, after your installing TVM with [memcov](https://github.com/Tzer-AnonBot/memcov) by applying `tvm_cov_patch/memcov4tvm.patch` to TVM (See [tvm_cov_patch/build_tvm.sh](tvm_cov_patch/build_tvm.sh)), you can get current coverage of TVM by:
+We implemented many re-usable functionalities for future and open research! To easily implement other coverage-guided fuzzing algorithm for TVM, after your installing TVM with [memcov](https://github.com/ise-uiuc/memcov) by applying `tvm_cov_patch/memcov4tvm.patch` to TVM (See [tvm_cov_patch/build_tvm.sh](tvm_cov_patch/build_tvm.sh)), you can get current coverage of TVM by:
 
 ```python
 from tvm.contrib import coverage
