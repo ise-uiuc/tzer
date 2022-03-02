@@ -4,6 +4,9 @@
     <img src="https://img.shields.io/badge/DetectedBug-40-brightgreen.svg">
     <img src="https://img.shields.io/badge/Confirmed-30-brightgreen.svg">
     <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
+</p>
+
+<p align="center">
     <a href="https://arxiv.org/abs/2202.09947"><img src="https://img.shields.io/badge/arXiv-2202.09947-b31b1b.svg">
     <a href="https://github.com/ise-uiuc/tzer" title="GitHub"><img src="https://img.shields.io/github/stars/ise-uiuc/tzer?style=flat-square">
 	<a href="https://colab.research.google.com/github/ise-uiuc/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
