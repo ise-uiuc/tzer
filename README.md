@@ -6,6 +6,10 @@
     <img src="https://img.shields.io/badge/DetectedBug-40-brightgreen.svg">
     <img src="https://img.shields.io/badge/Confirmed-30-brightgreen.svg">
     <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
+</p>
+
+<p align="center">
+    <a href="https://arxiv.org/abs/2202.09947"><img src="https://img.shields.io/badge/arXiv-2202.09947-b31b1b.svg">
 	<a href="https://colab.research.google.com/github/ise-uiuc/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
     <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
     <a href="https://tzer.readthedocs.io/en/latest/markdown/artifact.html" title="Artifact"><img src="https://img.shields.io/badge/Artifact-OOPSLA22-brightgreen.svg"></a>
@@ -24,7 +28,18 @@
 
 # Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation
 
-This is the source code repo for "Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation" (Conditionally accepted by OOPSLA'22).
+This is the source code repo for "Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation" (accepted by OOPSLA'22). 
+
+The pre-print version is now available on [**arXiv**](https://arxiv.org/abs/2202.09947)! Please cite our work if you find our contributions helpful!
+
+```bibtex
+@article{liu2022coverage,
+  title={Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation},
+  author={Liu, Jiawei and Wei, Yuxiang and Yang, Sen and Deng, Yinlin and Zhang, Lingming},
+  journal={arXiv preprint arXiv:2202.09947},
+  year={2022}
+}
+```
 
 ## Artifact
 
@@ -210,16 +225,3 @@ coverage.pop()  # merge the top snapshot from the stack.
 3. pop: merge the snapshot of the sub-process and last stored snapshot (top of the stack) to get a complete coverage.
 
 Latency of the combo is optimized to ~1ms as we applied bit-level optimization.
-
-## Cite Us
-
-Please cite our paper if you find our contributions are helpful. :-)
-
-```
-@inproceedings{tzer-2022,
-  title={Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation},
-  author={Liu, Jiawei and Wei, Yuxiang and Yang, Sen and Deng, Yinlin and Zhang, Lingming},
-  booktitle={Proceedings of the ACM SIGPLAN Conference on Object-Oriented Programming Systems, Languages, and Applications},
-  year={2022}
-}
-```
