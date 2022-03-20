@@ -2,6 +2,8 @@ from typing import Tuple
 import time
 import traceback
 import random
+import pickle
+import os
 
 from termcolor import colored
 from tqdm import tqdm
@@ -139,6 +141,10 @@ class Fuzzer:
         with tqdm(total=int(self.end_point - self.start_point)) as pbar:
             while self.current_point < self.end_point:
                 self.fuzz_new(pbar)
+        if __USE_COV__:
+            mcov = coverage.get_hitmap()
+            with open(os.path.join(self.reporter.report_folder, 'cov.pkl'), 'wb') as f:
+                pickle.dump(mcov, f)
 
     def fuzz_new(self, pbar):
         if self.joint_seed_pool.size() == 0:

@@ -19,8 +19,8 @@ def relay_to_tir(relay_seeds) -> List[tir.PrimFunc]:
         with tvm.transform.PassContext(opt_level=0):
             opt_mod, _ = relay.optimize(module, target, params)  # compile
             graph_json, lowered_func, params = graph_executor_codegen.GraphExecutorCodegen(
-                None, target=target).codegen(opt_mod['main'])  # relay -> tir
-            mod = lowered_func[target]
+                None, target=target).codegen(opt_mod, opt_mod['main'])  # relay -> tir
+            mod = lowered_func[list(lowered_func.keys())[0]]
             tirs.extend([mod[v] for v in mod.get_global_vars()])
     return tirs
 
