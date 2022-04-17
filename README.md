@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/DetectedBug-40-brightgreen.svg">
-    <img src="https://img.shields.io/badge/Confirmed-30-brightgreen.svg">
-    <img src="https://img.shields.io/badge/Fixed-24-brightgreen.svg">
+    <img src="https://img.shields.io/badge/DetectedBug-49-brightgreen.svg">
+    <img src="https://img.shields.io/badge/Confirmed-37-brightgreen.svg">
+    <img src="https://img.shields.io/badge/Fixed-25-brightgreen.svg">
 </p>
 
 <p align="center">
