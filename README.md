@@ -9,10 +9,11 @@
 </p>
 
 <p align="center">
+    <a href="https://dl.acm.org/doi/10.1145/3527317"><img src="http://img.shields.io/badge/DOI-10.1145/3527317-a55fed.svg">
     <a href="https://arxiv.org/abs/2202.09947"><img src="https://img.shields.io/badge/arXiv-2202.09947-b31b1b.svg">
-	<a href="https://colab.research.google.com/github/ise-uiuc/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+    <a href="https://colab.research.google.com/github/ise-uiuc/tzer/blob/main/bug-report.ipynb" title="Colab"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
     <a href="https://hub.docker.com/repository/docker/tzerbot/oopsla" title="Docker"><img src="https://img.shields.io/docker/image-size/tzerbot/oopsla"></a>
-    <a href="https://tzer.readthedocs.io/en/latest/markdown/artifact.html" title="Artifact"><img src="https://img.shields.io/badge/Artifact-OOPSLA22-brightgreen.svg"></a>
+    <a href="https://tzer.readthedocs.io/en/latest/markdown/artifact.html" title="Artifact"><img src="https://img.shields.io/badge/Artifact-Reusable-brightgreen.svg"></a>
 </p>
 
 
@@ -30,14 +31,24 @@
 
 This is the source code repo for "Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation" (accepted by OOPSLA'22). 
 
-The pre-print version is now available on [**arXiv**](https://arxiv.org/abs/2202.09947)! Please cite our work if you find our contributions helpful!
+Consider cite our work if you find our contributions helpful!
 
 ```bibtex
 @article{liu2022coverage,
-  title={Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation},
-  author={Liu, Jiawei and Wei, Yuxiang and Yang, Sen and Deng, Yinlin and Zhang, Lingming},
-  journal={arXiv preprint arXiv:2202.09947},
-  year={2022}
+  author = {Liu, Jiawei and Wei, Yuxiang and Yang, Sen and Deng, Yinlin and Zhang, Lingming},
+  title = {Coverage-Guided Tensor Compiler Fuzzing with Joint IR-Pass Mutation},
+  year = {2022},
+  issue_date = {April 2022},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {6},
+  number = {OOPSLA1},
+  url = {https://doi.org/10.1145/3527317},
+  doi = {10.1145/3527317},
+  journal = {Proc. ACM Program. Lang.},
+  month = {apr},
+  articleno = {73},
+  numpages = {26},
 }
 ```
 
