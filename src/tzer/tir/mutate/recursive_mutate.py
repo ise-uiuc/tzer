@@ -78,13 +78,13 @@ class RecursiveMutatorCombinator(TIRAbstractTransformer[Context], Mutator, IRMut
         options = [
             (1, lambda: self.mutate_node(op, context)),
             (self.get_node_size(op.body), lambda: tir.PrimFunc(
-                op.params,
-                self(op.body, context
+                params=op.params,
+                body=self(op.body, context
                      .with_constraint_being(semantic.StmtConstraint())
                      .with_bound_vars_being([*op.params, *context.bound_variables])),
-                op.ret_type,
-                op.buffer_map,
-                op.attrs,
+                ret_type=op.ret_type,
+                buffer_map=op.buffer_map,
+                attrs=op.attrs,
             )),
         ]
         return util.weighted_select(options)()
