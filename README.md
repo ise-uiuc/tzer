@@ -217,7 +217,7 @@ export PYTHONPATH=$TVM_HOME/python
 
 ## Extend Tzer
 
-We implemented many re-usable functionalities for future and open research! To easily implement other coverage-guided fuzzing algorithm for TVM, after your installing TVM with [memcov](https://github.com/ise-uiuc/memcov) by applying `tvm_cov_patch/memcov4tvm.patch` to TVM (See [tvm_cov_patch/build_tvm.sh](tvm_cov_patch/build_tvm.sh)), you can get current coverage of TVM by:
+We implemented many re-usable functionalities for future and open research! To easily implement other coverage-guided fuzzing algorithm for TVM, after your installing TVM with [memcov](https://github.com/ganler/memcov/tree/70e901637e718646c548fffae23a68152df7c6d1) by applying `tvm_cov_patch/memcov4tvm.patch` to TVM (See [tvm_cov_patch/build_tvm.sh](tvm_cov_patch/build_tvm.sh)), you can get current coverage of TVM by:
 
 ```python
 from tvm.contrib import coverage
